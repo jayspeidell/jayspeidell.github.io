@@ -1,22 +1,32 @@
 # main links links
 main:
-  - title: "Publications"
-    url: /publications/
+  - title: "Home"
+    url: /about/
+    
+  - title: "Resume"
+    url: /resume/
 
-  - title: "Talks"
-    url: /talks/
+  - title: "Projects"
+    url: /projects/
+  - title: "3D Trail Maps"
+    url: /3dtrailmaps/
+  #- title: "Publications"
+#    url: /publications/
 
-  - title: "Teaching"
-    url: /teaching/
+ # - title: "Talks"
+#    url: /talks/
 
-  - title: "Portfolio"
-    url: /portfolio/
+
+  #- title: "Teaching"
+#    url: /teaching/
+
+  #- title: "Portfolio"
+    #url: /portfolio/
 
 #  - title: "Blog Posts"
 #    url: /year-archive/
 
-  - title: "CV"
-    url: /cv/
+
 
   - title: "Guide"
     url: /markdown/
