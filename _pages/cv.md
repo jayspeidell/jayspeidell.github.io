@@ -13,7 +13,7 @@ redirect_from:
 Education
 ======
 * B.S. in Computer Science, Old Dominion University, 2020
-* M.A. in English, Virginia Tech, 2011
+* B.A. in English, Virginia Tech, 2011
 
 Work experience
 ======
