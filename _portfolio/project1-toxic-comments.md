@@ -321,7 +321,7 @@ Going with the linear kernel, there is only one major parameter to tune: C. This
 0.8 | 0.8032
 1.0 |0.8015
 
-Setting C to 0.5 instead of the default 0.8015 gives a 0.51% performance increase.
+Setting C to 0.5 instead of the default 1.0 gives a 0.51% performance increase.
 
 # IV. Results
 ## Model Evaluation and Validation
