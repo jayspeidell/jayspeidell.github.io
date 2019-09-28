@@ -272,7 +272,7 @@ LightGBM also showed strong results with some tuning, but there is an issue with
 ### Step 1: Optimize tf-idf vectorizer
 Experiment with word and character level ngrams and maximum feature counts. All other parameters are fixed, and refinement steps will all use five-fold cross validation.
 
-Word Ngram | Word Max Features | Char Ngram | Char Max Features |  Score
+**Word Ngram** | **Word Max Features** | **Char Ngram** | **Char Max Features** |  **Score**
 1 | 10,000 | 0 | 0 | 0.7842
 1 | 30,000 | 0 | 0 | 0.7926
 1-2 | 30,000 | 0 | 0 | 0.7877
@@ -290,7 +290,7 @@ The ideal seems to be a 20,000 word ngrams in range 1-3 and 10,000 char ngrams i
 The NB feature transformer class has a parameter ‘epsilon’ that controls the influence of the
 feature level probabilities on the input features. The default parameter is 1.0.
 
-NB Weight | F1 Score
+**NB Weight** | **F1 Score**
 0.1 | 0.7966
 0.2 | 0.7989
 0.3 | 0.8003
@@ -315,7 +315,7 @@ Result of testing gaussian kernel: 30+ minute training on a computer with 8 virt
 #### Parameter 2: Penalty for error term
 Going with the linear kernel, there is only one major parameter to tune: C. This is the coefficient for the L2 penalization. The default is 1.0, and I will test 0.5, 0.7, and 0.9.
 
-C | F1 Score
+**C** | **F1 Score**
 0.3 | 0.8049
 0.5 | 0.8054
 0.8 | 0.8032
