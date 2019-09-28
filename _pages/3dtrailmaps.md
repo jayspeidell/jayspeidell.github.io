@@ -1,13 +1,14 @@
 ---
-permalink: /projects/
-title: "Projects"
+permalink: /3D Trail Maps/
+title: "3dtrailmaps"
 author_profile: true
 redirect_from:
-  - /pg/
-  - /projects.html
+  - /3dtrailmaps.html
 ---
 
-## Locations of key files/directories
+## Toxic Comment Classification
+
+
 
 * Basic config options: _config.yml
 * Top navigation bar config: _data/navigation.yml
