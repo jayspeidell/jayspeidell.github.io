@@ -351,15 +351,15 @@ Overall, I do believe that this model is robust enough for this application and 
 
 ## Reflection
 The process for this project was as follows:
-    1. Analyze the problem and propose a useful solution.
-    2. Explore the dataset to get a better picture of how the labels are distributed, how they correlate with each other, and what defines toxic or clean comments.
-    3. Develop an objective that fits a practical use case and addresses the major class imbalance.
-    4. Create a baseline score with a simple logistic regression classifier.
-    5. Explore the effectiveness of multiple machine learning algorithms.
-    6. Select the best model based on a balance of performance and efficiency.
-    7. Refine the preprocessing strategies to optimize model performance.
-    8. Tune model parameters to maximize performance.
-    9. Build a the final model with the best performing algorithm and parameters and test it on a holdout subset of the data.
+1. Analyze the problem and propose a useful solution.
+2. Explore the dataset to get a better picture of how the labels are distributed, how they correlate with each other, and what defines toxic or clean comments.
+3. Develop an objective that fits a practical use case and addresses the major class imbalance.
+4. Create a baseline score with a simple logistic regression classifier.
+5. Explore the effectiveness of multiple machine learning algorithms.
+6. Select the best model based on a balance of performance and efficiency.
+7. Refine the preprocessing strategies to optimize model performance.
+8. Tune model parameters to maximize performance.
+9. Build a the final model with the best performing algorithm and parameters and test it on a holdout subset of the data.
 
 The final model offered about 11% performance gain over the initial benchmark model, which makes it an effective solution to the problem. Even more so considering that the current system in place was hand-labeling by users via a reporting function.
 
@@ -383,7 +383,7 @@ Another great strategy could be mixed models, a sort of divide an conquer method
 
 
 # Resources:
-1. https://conversationai.github.io/
-2. https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge
-3. https://www.aclweb.org/anthology/P12-2018
-4. https://www.kdnuggets.com/2016/06/select-support-vector-machine-kernels.html
+1. [https://conversationai.github.io/](https://conversationai.github.io/)
+2. [https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge](https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge)
+3. [https://www.aclweb.org/anthology/P12-2018](https://www.aclweb.org/anthology/P12-2018)
+4. [https://www.kdnuggets.com/2016/06/select-support-vector-machine-kernels.html](https://www.kdnuggets.com/2016/06/select-support-vector-machine-kernels.html)
