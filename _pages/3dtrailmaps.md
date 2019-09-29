@@ -1,5 +1,5 @@
 ---
-permalink: /3DTrailMaps/
+permalink: /3dtrailmaps/
 title: "3D Trail Maps"
 author_profile: true
 redirect_from:
@@ -57,4 +57,4 @@ Tokul is a fun trail system, but the model is still a bit of a work-in-progress 
 
 ![](/images/3dp/tokul1.jpg)
 
-I'll add more pictures in the future as I make more maps! 
+I'll add more pictures in the future as I make more maps!
