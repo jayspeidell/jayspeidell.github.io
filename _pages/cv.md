@@ -9,6 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
+For a demonstration of my skills, check out my [Projects](/projects/) page. 
 
 Education
 ======
@@ -17,43 +18,55 @@ Education
 
 Work experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+## Sales & Marketing Coordinator @ Momentum, Inc \| Nov '15 to Present
+Seattle, WA
+* Wrote industry-leading content on financial institution retail and workplace issues.
+* Created some of the best proposals in the industry.
+* Analyzed the credit union market using Python and Jupyter Notebooks, creating geographic data and maps to focus business development efforts.
+* Led a website redevelopment project, improving site navigation and boosting engagement among target demographic.
+* Led a CRM and Marketing Automation migration project that resulted in higher engagement and better lead capture and follow-up.
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+## Special Projects Manager @ The Speidell Group \| Mar '08 to May '15
+Lynchburg, VA
+* Created engaging photo, video, and written content for clients
+* Led the development of an automated estimation and proposal system via a third party developer.
+
+## Kindergarten Teacher @ Multiple Korean Schools \| Jul '11 to Mar '14
+
+## Reporter @ The Collegiate Times \| May'10 - Jun'11
+
+<br />
 
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+## Programming Languages
+* C
+* C++
+* Java
+* Python
 
-Publications
-======
-  <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+Data Skills
+* Data Visualization
+* Exploratory Data analysis
+* Machine Learning
+* SQL
+* Statistics
 
-Talks
-======
-  <ul>{% for post in site.talks %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
+Computer Science Knowledge
+* Collaborative Development
+* Cloud Computing Environments
+(AWS,GCE)
+* Software
+Engineering
+* Team Programming
+* Unix
+* Version Control (Git,Github
 
-Teaching
-======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+Design
+* Gimp
+* Illustrator
+* InDesign
+* Inkscape
+* OpenSCAD
+* PhotoShop
+* Unified Modelling Language

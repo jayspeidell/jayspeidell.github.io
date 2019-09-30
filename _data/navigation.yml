@@ -2,7 +2,7 @@
 main:
   - title: "Home"
     url: /about/
-    
+
   - title: "Resume"
     url: /resume/
 
@@ -28,5 +28,5 @@ main:
 
 
 
-  - title: "Guide"
-    url: /markdown/
+ # - title: "Guide"
+#    url: /markdown/
