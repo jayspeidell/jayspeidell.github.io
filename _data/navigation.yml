@@ -3,13 +3,15 @@ main:
   - title: "Home"
     url: /about/
 
-  - title: "Resume"
-    url: /resume/
+
 
   - title: "Projects"
     url: /projects/
   - title: "3D Trail Maps"
     url: /3dtrailmaps/
+
+ # - title: "Resume"
+#    url: /resume/
   #- title: "Publications"
 #    url: /publications/
 

@@ -12,4 +12,6 @@ I'm a sales and marketing professional in Seattle pursuing continuing education 
 
 In what little free time I have you'll find me doing Kaggle competitions, 3D printing, hiking, and mountain biking!
 
-While you're here, check out my resume, a sample of projects I've worked on, and my 3D printed trail maps!
+While you're here, check out a sample of projects I've worked on and my 3D printed trail maps!
+
+Resume available upon request. 
