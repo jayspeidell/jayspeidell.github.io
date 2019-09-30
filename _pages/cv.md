@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-For a demonstration of my skills, check out my [Projects](/projects/) page. 
+For a demonstration of my skills, check out my [Projects](/projects/) page.
 
 Education
 ======
@@ -45,24 +45,23 @@ Skills
 * Java
 * Python
 
-Data Skills
+## Data Skills
 * Data Visualization
 * Exploratory Data analysis
 * Machine Learning
 * SQL
 * Statistics
 
-Computer Science Knowledge
+## Computer Science Knowledge
 * Collaborative Development
 * Cloud Computing Environments
 (AWS,GCE)
-* Software
-Engineering
+* Software Engineering
 * Team Programming
 * Unix
 * Version Control (Git,Github
 
-Design
+## Design
 * Gimp
 * Illustrator
 * InDesign
