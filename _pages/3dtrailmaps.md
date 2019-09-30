@@ -25,7 +25,7 @@ The elevation data I'm using has a resolution of 1/3 arc-second, or about ten me
 
 ## Tiger Mountain
 
-Tiger Mountain is one of the most popular trail systems near Seattle. My favorite trail here is Predator, but I'm biased because this is the first major trail projects I've worked on and I spent many hours working on it while I looking for work after moving to Seattle.
+Tiger Mountain is one of the most popular trail systems near Seattle. My favorite trail here is Predator, but I'm biased because this is the first major trail projects I've worked on and I spent many hours working on it while I was looking for work after moving to Seattle.
 
 ![](/images/3dp/tiger4.jpg)
 

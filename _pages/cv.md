@@ -59,7 +59,7 @@ Skills
 * Software Engineering
 * Team Programming
 * Unix
-* Version Control (Git,Github
+* Version Control (Git,Github)
 
 ## Design
 * Gimp
