@@ -17,7 +17,7 @@ To learn more about collaborative development with version control systems as we
 
 I made the following contributions to the project:
 * [Improved the Plotter Module](#improved-the-plotter-module)
-* [Added Objective Functions](#added-onjective-functions)
+* [Added Objective Functions](#added-objective-functions)
 
 ## Improved The Plotter Module
 
