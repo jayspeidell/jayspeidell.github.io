@@ -11,6 +11,16 @@ redirect_from:
 
 For a demonstration of my skills, check out my [Projects](/projects/) page.
 
+<object data="/images/resume/Jay_Speidell.pdf#pagemode=none" type="application/pdf" width="700px" height="700px">
+    <embed src="/images/resume/Jay_Speidell.pdf#pagemode=none">
+        <p>
+            This browser does not support PDFs. Please download the PDF to view it: <a href="/images/resume/Jay_Speidell.pdf">Download PDF</a>.
+        </p>
+    </embed>
+</object>
+
+{::comment}
+
 Education
 ======
 * B.S. in Computer Science, Old Dominion University, 2020
@@ -69,3 +79,5 @@ Skills
 * OpenSCAD
 * PhotoShop
 * Unified Modelling Language
+
+{:/comment}

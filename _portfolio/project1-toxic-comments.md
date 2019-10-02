@@ -1,11 +1,12 @@
 ---
 title: "Toxic Comment Classification"
-excerpt: "I performed a detailed analysis of Wikipedia comments and built a model that classifies them as toxic or nontoxic. The data was obtained from Kaggle. <br/><img src='/images/p1/wordcloud.png'>"
+excerpt: "I performed a detailed analysis of Wikipedia comments and built a model that classifies them as toxic or nontoxic. The data was obtained from Kaggle. <br/><img src='/images/toxic/wordcloud.png'>"
 collection: portfolio
 ---
 
-[The source code and a report in PDF format can be found on my GitHub page here.](https://github.com/jayspeidell/ToxicCommentClassification-)
+[The Jypyter notebooks and a report in PDF format can be found on my GitHub page here.](https://github.com/jayspeidell/ToxicCommentClassification-)
 
+<img src="/images/toxic/wordcloud.png" style="width:60%" />
 # I. Definition
 ## Project Overview
 
@@ -54,7 +55,7 @@ The figure on the following page contains a breakdown of how the labels are dist
 As you can see in the breakdown, while most comments with other labels are also toxic, not all of them are. Only “severe_toxic” is clearly a subcategory of “toxic.” And it’s not close enough to be a labeling error. This suggests that “toxic” is not a catch-all label, but rather a subcategory in itself with a large amount of overlap. Because of this, I’m going to create a seventh label called “any_label” to represent overall toxicity of a comment. From here on in, I’m going to refer to any labeled comments as toxic, and the specific “toxic” label (along with other labels) in quotation marks.
 
 
-<img src="/images/p1/label counts.png" style="width:50%" />
+<img src="/images/toxic/label counts.png" style="width:50%" />
 <br />*Fig 1: Label Counts*
 
 Only 39% of the toxic comments have only one label, and the majority have some sort of overlap. I believe that because of this, it will be much more difficult to train a classifier on specific labels than whether or not they are toxic.
@@ -107,7 +108,7 @@ The correlation matrix below provides more insight into these overlapping catego
 
 I believe the categories with significant overlap will be more difficult to predict, as they’ll have similar contributing features, but “identity_hate” will have more unique attributes and be easier to predict.
 
-<img src="/images/p1/type heatmap.png" style="width:80%" />
+<img src="/images/toxic/type heatmap.png" style="width:80%" />
 <br />*Fig 2: Correlation Matrix Heatmap of Labels*
 
 So what do these comments look like? Let’s look at a few.
@@ -134,14 +135,14 @@ Various types of toxic comments seem to almost always be argumentative, though t
 
 So what does a clean Wikipedia comment look like? I used a tokenizer with the standard stopwords to get the overall count of individual words and plotted the top 45.
 
-<img src="/images/p1/word counts.png" style="width:100%" />
+<img src="/images/toxic/word counts.png" style="width:100%" />
 <br />*Fig 3: Non-Toxic Comment Word Frequency*
 
 Article, page, please, think, edit, etc. The highest frequency words are about what you would expect from people discussing Wikipedia page edits and policy.
 
 Now let’s look at what a bad comment looks like. Can you find the top two words from the clean comments? “Wikipedia” surprisingly comes in second, and “article” falls back quite a few spaces. The difference in the highest frequency vocabulary is stark.
 
-<img src="/images/p1/toxic counts.png" style="width:100%" />
+<img src="/images/toxic/toxic counts.png" style="width:100%" />
 <br />*Fig 4: Toxic Comment Word Frequency*
 
 In addition to the words themselves, I’ve extracted some other attributes of the comments that show contrast between toxic and clean comments.
@@ -344,7 +345,7 @@ As discussed before, the F1 Score provides a target that helps a model find the 
 
 Overall, I do believe that this model is robust enough for this application and it offers a large advantage over both the standard approach of human flagging for review (though I wouldn’t eliminate that as a feature) and an out-of-the-box model.
 
-<img src="/images/p1/results heatmap.png" style="width:60%" />
+<img src="/images/toxic/results heatmap.png" style="width:60%" />
 <br />*Fig 5: Toxic Comment Confusion Matrix*
 
 # V. Conclusion
