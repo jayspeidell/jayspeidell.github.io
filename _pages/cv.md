@@ -9,14 +9,16 @@ redirect_from:
 
 {% include base_path %}
 
-For a demonstration of my skills, check out my [Projects](/projects/) page.
+For a demonstration of my data science and programing skills, check out my [Projects](/projects/) page.
 
-<object data="/images/resume/Jay_Speidell.pdf#pagemode=none" type="application/pdf" width="700px" height="700px">
+<object data="/images/resume/Jay_Speidell.pdf#pagemode=none" type="application/pdf" width="700px" height="910px" >
         <p>
             This browser does not support PDFs. Please download the PDF to view it: <a href="/images/resume/Jay_Speidell.pdf">Download PDF</a>.
         </p>
 
 </object>
+
+Made with LaTeX.  
 
 {::comment}
 
@@ -77,6 +79,6 @@ Skills
 * Inkscape
 * OpenSCAD
 * PhotoShop
-* Unified Modelling Language
+* Unified Modeling Language
 
 {:/comment}
