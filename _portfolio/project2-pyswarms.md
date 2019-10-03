@@ -45,19 +45,22 @@ I cleaned up and fixed existing functions with TODO tags and implemented Cross-i
 
 ![](/images/pyswarms/cross-in-tray.png)
 
+
+<div class="player-overlay">
 <video controls>
   <source src="/images/pyswarms/cross_in_tray.mp4" type="video/mp4">
 </video>
+</div>
+
 
 
 ### Eggholder Function
 
 ![](/images/pyswarms/eggholder.png)
 
-<div class="contrained-container">
-<video controls>
-  <source src="/images/pyswarms/eggholder.mp4" type="video/mp4">
-</video>
+
+<div class="flexible-container">
+<iframe src = "/images/pyswarms/eggholder.mp4" type = "video/mp4" preload ="true" autoplay loop = "loop"> frameborder="0" style="border:0"></iframe>
 </div>
 
 ### Easom Function
