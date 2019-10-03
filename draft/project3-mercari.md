@@ -1,10 +1,14 @@
 ---
-title: "PySwarms Open Source Contribution"
-excerpt: "To learn more about collaborative development with version control systems as well as contributing to open source projects on GitHub, I made two contributions to the PySwarms project. Pyswarms is a Python module for particle swarm optimization research.<br/><img src='/images/pyswarms/eggholder.jpg'>"
+title: "Predicting Prices Based on Descriptions"
+excerpt: "This project was completed for the Mercari Price Suggestion Challenge. Mercari allows users to list items for sale, but it can be difficult to guess a realistic price in the situation. The objective of this challenge was to build a model that can suggest realistic prices for listed items based on their descriptions.<br/><img src='/images/pyswarms/eggholder.jpg'>"
 collection: portfolio
 ---
+ notebook
+https://www.kaggle.com/jayspeidell/predictions-as-features?scriptVersionId=2500768
 
-To learn more about collaborative development with version control systems as well as contributing to open source projects on GitHub, I made two contributions to the PySwarms project. Pyswarms is a Python module for particle swarm optimization research.
+This project was completed for Kaggle's Mercari Price Suggestion Challenge. Mercari allows users to list items for sale, but it can be difficult to guess a realistic price in the situation. The objective of this challenge was to build a model that can suggest realistic prices for listed items based on their descriptions.
+
+This competition also feature a new challenge for Kaggle, a time and hardware restriction. Notebooks generating submissions had to be run on Kaggle servers in under an hour with limited resources, including no GPU. 
 
 # Tools Used
 
@@ -54,11 +58,10 @@ I cleaned up and fixed existing functions with TODO tags and implemented Cross-i
 
 ![](/images/pyswarms/eggholder.png)
 
-<div class="contrained-container">
+
 <video controls>
   <source src="/images/pyswarms/eggholder.mp4" type="video/mp4">
 </video>
-</div>
 
 ### Easom Function
 

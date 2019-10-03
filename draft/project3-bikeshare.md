@@ -1,6 +1,6 @@
 ---
-title: "PySwarms Open Source Contribution"
-excerpt: "To learn more about collaborative development with version control systems as well as contributing to open source projects on GitHub, I made two contributions to the PySwarms project. Pyswarms is a Python module for particle swarm optimization research.<br/><img src='/images/pyswarms/eggholder.jpg'>"
+title: "Modelling DC Bikeshare Ridership"
+excerpt: "For this project, I explored the public .<br/><img src='/images/pyswarms/eggholder.jpg'>"
 collection: portfolio
 ---
 
@@ -54,11 +54,10 @@ I cleaned up and fixed existing functions with TODO tags and implemented Cross-i
 
 ![](/images/pyswarms/eggholder.png)
 
-<div class="contrained-container">
+
 <video controls>
   <source src="/images/pyswarms/eggholder.mp4" type="video/mp4">
 </video>
-</div>
 
 ### Easom Function
 
