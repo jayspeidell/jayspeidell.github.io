@@ -45,52 +45,46 @@ I cleaned up and fixed existing functions with TODO tags and implemented Cross-i
 
 ![](/images/pyswarms/cross-in-tray.png)
 
-
-<div class="player-overlay">
-<video controls>
-  <source src="/images/pyswarms/cross_in_tray.mp4" type="video/mp4">
-</video>
+<div class="flexible-container">
+<iframe src = "/images/pyswarms/cross_in_tray.mp4" type = "video/mp4" > frameborder="0" style="border:0"></iframe>
 </div>
-
-
 
 ### Eggholder Function
 
 ![](/images/pyswarms/eggholder.png)
 
-
 <div class="flexible-container">
-<iframe src = "/images/pyswarms/eggholder.mp4" type = "video/mp4" preload ="true" autoplay loop = "loop"> frameborder="0" style="border:0"></iframe>
+<iframe src = "/images/pyswarms/eggholder.mp4" type = "video/mp4"  > frameborder="0" style="border:0"></iframe>
 </div>
 
 ### Easom Function
 
 ![](/images/pyswarms/easom.png)
 
-<video controls>
-  <source src="/images/pyswarms/easom.mp4" type="video/mp4">
-</video>
+<div class="flexible-container">
+<iframe src = "/images/pyswarms/easom.mp4" type = "video/mp4" > frameborder="0" style="border:0"></iframe>
+</div>
 
 ### Himmelblau Function
 
 ![](/images/pyswarms/himmelblau.png)
 
-<video controls>
-  <source src="/images/pyswarms/himmelblau.mp4" type="video/mp4">
-</video>
+<div class="flexible-container">
+<iframe src = "/images/pyswarms/himmelblau.mp4" type = "video/mp4"  > frameborder="0" style="border:0"></iframe>
+</div>
 
 ### Holder Table Function
 
 ![](/images/pyswarms/holder_table.png)
 
-<video controls>
-  <source src="/images/pyswarms/holder_table.mp4" type="video/mp4">
-</video>
+<div class="flexible-container">
+<iframe src = "/images/pyswarms/holder_table.mp4" type = "video/mp4"  > frameborder="0" style="border:0"></iframe>
+</div>
 
 ### Three Hump Camel Function
 
 ![](/images/pyswarms/three_hump_camel.png)
 
-<video controls>
-  <source src="/images/pyswarms/three_hump_camel.mp4" type="video/mp4">
-</video>
+<div class="flexible-container">
+<iframe src = "/images/pyswarms/three_hump_camel.mp4" type = "video/mp4">  frameborder="0" style="border:0"></iframe>
+</div>
