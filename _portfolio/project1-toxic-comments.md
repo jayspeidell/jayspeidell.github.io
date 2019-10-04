@@ -6,7 +6,7 @@ collection: portfolio
 
 [The Jypyter notebooks and a report in PDF format can be found on my GitHub page here.](https://github.com/jayspeidell/ToxicCommentClassification-)
 
-<img src="/images/toxic/wordcloud.png" style="width:60%" />
+<img src="/images/toxic/wordcloud.png" style="width:100%" />
 # I. Definition
 ## Project Overview
 
@@ -55,7 +55,7 @@ The figure on the following page contains a breakdown of how the labels are dist
 As you can see in the breakdown, while most comments with other labels are also toxic, not all of them are. Only “severe_toxic” is clearly a subcategory of “toxic.” And it’s not close enough to be a labeling error. This suggests that “toxic” is not a catch-all label, but rather a subcategory in itself with a large amount of overlap. Because of this, I’m going to create a seventh label called “any_label” to represent overall toxicity of a comment. From here on in, I’m going to refer to any labeled comments as toxic, and the specific “toxic” label (along with other labels) in quotation marks.
 
 
-<img src="/images/toxic/label counts.png" style="width:50%" />
+<img src="/images/toxic/label counts.png" style="width:100%" />
 <br />*Fig 1: Label Counts*
 
 Only 39% of the toxic comments have only one label, and the majority have some sort of overlap. I believe that because of this, it will be much more difficult to train a classifier on specific labels than whether or not they are toxic.
@@ -108,7 +108,7 @@ The correlation matrix below provides more insight into these overlapping catego
 
 I believe the categories with significant overlap will be more difficult to predict, as they’ll have similar contributing features, but “identity_hate” will have more unique attributes and be easier to predict.
 
-<img src="/images/toxic/type heatmap.png" style="width:80%" />
+<img src="/images/toxic/type heatmap.png" style="width:100%" />
 <br />*Fig 2: Correlation Matrix Heatmap of Labels*
 
 So what do these comments look like? Let’s look at a few.
@@ -173,7 +173,7 @@ With the benchmark vectorization and features, I will experiment with multiple a
 * Support Vector Machine with Naive Bayes Features
 * Light GBM
 
-Recurrent neural networks work well on this problem and top Kaggle leaderboards, but I think deep learning approaches are too resource intensive for an algorithm that has to run instantly every single time a comment is posted on one of the most popular websites on the Internet. A major requirement if this were a real-life business problem is efficiency. Additionally, adapting the model to secondary features would require stacking, which is a messy solution that increases the complexity of both training and predicting. I’ve used model stacking in Kaggle competitions before, and it comes at the expense of efficiency.
+Recurrent neural networks work well on this problem and top Kaggle leaderboards, but I think deep learning approaches might be too resource intensive for an algorithm that has to run instantly every single time a comment is posted on one of the most popular websites on the Internet. A major requirement if this were a real-life business problem is efficiency. Additionally, adapting the model to secondary features would require stacking, which is a messy solution that increases the complexity of both training and predicting. I’ve used model stacking in Kaggle competitions before, and it comes at the expense of efficiency.
 
 One more consideration is transparency, and this is the biggest aspect of the decision not to use neural networks for this application. I want to have the ability to easily audit the model to ensure that it isn’t picking up bias around race, gender, sexual orientation, culture, or unforeseen categories from the curators of the data. SVM, Naive Bayes, and LightGBM will make it much easier for a third party to analyze the impact of specific features on the model and make appropriate adjustments to combat bias.
 
@@ -235,7 +235,7 @@ During the exploratory data analysis, I found that many attributes of comments o
 As discussed previously, I am using a term frequency – inverse document frequency (tf-idf) statistic to vectorize text. The number of features and presence of character n-grams is a parameter to tune for model optimization.
 
 ## Feature Scaling
-The engineered features are normalized from 0.0 to 1.0. The tf-isf features are not scaled.
+The engineered features are normalized from 0.0 to 1.0. The tf-idf features are not scaled.
 
 ## Implementation
 Finding the Best Algorithm
@@ -339,13 +339,13 @@ The final model offers a significant performance boost over the benchmark linear
 
 This model has 96% accuracy. Now on the surface, that sounds great. But since this is a highly imbalanced dataset, that doesn’t mean a lot. In fact, if I had just created a model that predicted “0” for every single item, it would get an accuracy of 90%.
 
-The real metric of how well the model performed at predicting a toxic comment is recall. This model achieved a recall score of 0.74, which means that it correctly 74% of the actual toxic comments as toxic. That may seem low, but there’s a catch. If we predict every result as “1,” we’ll get 100% recall.
+The real metric of how well the model performed at predicting a toxic comment is recall. This model achieved a recall score of 0.74, which means that it correctly 74% of the actual toxic comments as toxic. That may seem low, but optimizing for recall is a tough challenge. If we used recall as a training objective, it would classify every comment as toxic and quickly reach 100% recall and make every clean comment a false positive. It's necessary then to strike a balance between precision and recall.
 
 As discussed before, the F1 Score provides a target that helps a model find the nuance in an imbalanced dataset between catching the positive results without focusing on them to a point where the usefulness of the model suffers. A confusion matrix can illustrate the concept of balancing true positives and true negatives, as well as accuracy, recall, and precision.
 
 Overall, I do believe that this model is robust enough for this application and it offers a large advantage over both the standard approach of human flagging for review (though I wouldn’t eliminate that as a feature) and an out-of-the-box model.
 
-<img src="/images/toxic/results heatmap.png" style="width:60%" />
+<img src="/images/toxic/results heatmap.png" style="width:100%" />
 <br />*Fig 5: Toxic Comment Confusion Matrix*
 
 # V. Conclusion
