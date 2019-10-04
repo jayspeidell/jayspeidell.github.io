@@ -339,14 +339,20 @@ The final model offers a significant performance boost over the benchmark linear
 
 This model has 96% accuracy. Now on the surface, that sounds great. But since this is a highly imbalanced dataset, that doesn’t mean a lot. In fact, if I had just created a model that predicted “0” for every single item, it would get an accuracy of 90%.
 
-The real metric of how well the model performed at predicting a toxic comment is recall. This model achieved a recall score of 0.74, which means that it correctly 74% of the actual toxic comments as toxic. That may seem low, but optimizing for recall is a tough challenge. If we used recall as a training objective, it would classify every comment as toxic and quickly reach 100% recall and make every clean comment a false positive. It's necessary then to strike a balance between precision and recall.
+The real metric of how well the model performed at predicting a toxic comment is recall. This model achieved a recall score of 0.74, which means that it correctly 74% of the actual toxic comments as toxic. That may seem low, but optimizing for recall is a tough challenge. If we used recall as a training objective, it would classify every comment as toxic and quickly reach 100% recall and make every clean comment a false positive. It's necessary then to strike a balance between precision and recall. False positives waste time, while false negatives allow toxicity to fall through the cracks.
 
-As discussed before, the F1 Score provides a target that helps a model find the nuance in an imbalanced dataset between catching the positive results without focusing on them to a point where the usefulness of the model suffers. A confusion matrix can illustrate the concept of balancing true positives and true negatives, as well as accuracy, recall, and precision.
-
-Overall, I do believe that this model is robust enough for this application and it offers a large advantage over both the standard approach of human flagging for review (though I wouldn’t eliminate that as a feature) and an out-of-the-box model.
+You can see a confusion matrix where the predictions are matched with reality below.
 
 <img src="/images/toxic/results heatmap.png" style="width:100%" />
 <br />*Fig 5: Toxic Comment Confusion Matrix*
+
+As discussed before, the F1 Score provides a target that helps a model find the nuance in an imbalanced dataset between catching the positive results without focusing on them to a point where the usefulness of the model suffers. A confusion matrix can illustrate the concept of balancing true positives and true negatives, as well as accuracy, recall, and precision.
+
+Let's look finally at the impact that these results have on a moderator's work. On the validation set, this model flagged less than 3% of the clean comments as toxic, while over 89% of the toxic comments were captured. Of the  
+
+Overall, I do believe that this model is robust enough for this application and it offers a large advantage over both the standard approach of human flagging for review (though I wouldn’t eliminate that as a feature) and an out-of-the-box model. Of the comments would be submitted to a moderator review by the model, 76% are toxic.
+
+I believe that this performance makes this model an effective tool that would both save moderators time and efficiently catch comments that may otherwise fall through the cracks. Each moderator could have a big impact on reducing toxicity in the Wikipedia community.
 
 # V. Conclusion
 
@@ -372,9 +378,9 @@ Because the input size varies greatly, and because Wikipedia likely has a very d
 
 I believe that there are a number of ways that the solution could be improved.
 
-Recurrent neural networks, despite their increased overhead, could be a very effective solution if GPU resources are available for quick predictions.
+Recurrent neural networks offer extremely high performance on natural language processing problems, and if the architecture for the inferrence step were implemented efficiently the computational overhead would be minimal.
 
-Another great strategy could be mixed models, a sort of divide an conquer method where the problem is divided into multiple smaller, contextual problems. While the solution laid out here generalizes to the entire dataset, no one solution will be able to generalize perfectly to the diverse variety of inputs you’ll get from Internet users. By training models on different situations, like a model that’s only been trained on short or long comments, to only detect whether a comment is toxic when profanity is present, etc, and storing them in memory, you could use a simple decision tree to feel comments into the model that would be most effective. A few that I can think of are:
+Another great strategy could be using multiple models, a sort of divide an conquer method where the problem is divided into multiple smaller, contextual problems. While the solution laid out here generalizes to the entire dataset, no one solution will be able to generalize perfectly to the diverse variety of inputs you’ll get from Internet users. By training models on different situations, like a model that’s only been trained on short or long comments, to only detect whether a comment is toxic when profanity is present, etc, and storing them in memory, you could use a simple decision tree to feel comments into the model that would be most effective. A few that I can think of are:
 * Short comments
 * Long comments
 * “Hot” threads where the rate of commenting is high and emotions may be high
