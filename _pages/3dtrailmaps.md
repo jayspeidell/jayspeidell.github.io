@@ -21,7 +21,7 @@ Check out a few of the maps I've made so far below!
 
 And if you like them, feel free to reach out! I'd be happy to make more if you're interested.
 
-The elevation data I'm using has a resolution of 1/3 arc-second, or about ten meters, so short trails or those with low elevation gain won't turn out nice. But upscaling this data to look nice blown up is on my to-do list!
+The elevation data I'm using has a resolution of 1/3 arc-second, or about ten meters, so short trails or those with low elevation gain won't turn out nice. But upscaling this data to look nice blown up is on my to-do list! (Which due to work, school, and a research project I'm participating in as an unfortunately long list for the time being...) 
 
 ## Tiger Mountain
 
