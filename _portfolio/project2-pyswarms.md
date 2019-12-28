@@ -4,7 +4,7 @@ excerpt: "To learn more about collaborative development with version control sys
 collection: portfolio
 ---
 
-To learn more about collaborative development with version control systems as well as contributing to open source projects on GitHub, I made two contributions to the PySwarms project. Pyswarms is a Python module for particle swarm optimization research.
+To learn more about collaborative development with version control systems as well as contributing to open source projects on GitHub, I made two contributions to the PySwarms project. PySwarms is a Python module for particle swarm optimization research.
 
 # Tools Used
 
