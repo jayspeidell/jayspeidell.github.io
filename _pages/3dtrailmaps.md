@@ -15,13 +15,16 @@ They print with a raised impression of the trail which I then paint, so you can 
 Check out a few of the maps I've made so far below!
 * [Tiger Mountain](#tiger-mountain)
 * [Hansen Ridge](#hansen-ridge)
+* [Mason Lake](#mason-lake)
+* [Rachel Lake](#rachel-lake)
+* [Snow Lake](#snow-lake)
 * [Tokul](#tokul)
 
 ![](/images/3dp/tokul_printing.gif)
 
 And if you like them, feel free to reach out! I'd be happy to make more if you're interested.
 
-The elevation data I'm using has a resolution of 1/3 arc-second, or about ten meters, so short trails or those with low elevation gain won't turn out nice. But upscaling this data to look nice blown up is on my to-do list! (Which due to work, school, and a research project I'm participating in as an unfortunately long list for the time being...) 
+The elevation data I'm using has a resolution of 1/3 arc-second, or about ten meters, so short trails or those with low elevation gain won't turn out nice. But upscaling this data to look nice blown up is on my to-do list! (Which due to work, school, and a research project I'm participating in as an unfortunately long list for the time being...)
 
 ## Tiger Mountain
 
@@ -33,7 +36,7 @@ Tiger Mountain is one of the most popular trail systems near Seattle. My favorit
 
 ![](/images/3dp/tiger3.jpg)
 
-## Hansen ridge
+## Hansen Ridge
 
 Hansen Ridge is by far my favorite cross country ride anywhere. It's a reversed lollipop loop along an exposed ridgeline with a cool lake at the end. Maps don't do it justice, but in 3D you can get a feel for the scale of the ridgelines and epic views you'll experience here.
 
@@ -50,6 +53,48 @@ Hansen Ridge is by far my favorite cross country ride anywhere. It's a reversed 
 I also decided to push the limit and see how small I could print these!
 
 ![](/images/3dp/hansenmini.jpg)
+
+## Mason Lake
+
+The Ira Spring trail is a fun 7.5 mile hike that takes you to Mason Lake, a small alpine lake sheltered by a ridge. It's a nice place to camp or just hang out, and the exposed ridgeline on the way up makes for incredible views!
+
+![](/images/3dp/mason1.jpg)
+
+![](/images/3dp/mason_slope.jpg)
+
+![](/images/3dp/mason2.jpg)
+
+![](/images/3dp/mason_lake.jpg)
+
+[I've shared this model on Thingiverse.](https://www.thingiverse.com/thing:4072547)
+
+## Rachel lake
+
+The trail to Rachel Lake starts out gradual then quickly gets steep. Rachel Lake itself is a great destination, but if you continue on another mile or so you'll find yourself at Rampart Lake.
+
+![](/images/3dp/rachel1.jpg)
+
+![](/images/3dp/rachel_lake.jpg)
+
+![](/images/3dp/rachel2.jpg)
+
+![](/images/3dp/rachel_rampart.jpg)
+
+## Snow lake
+
+Snow Lake is a huge alpine lake that's easy to get to. The trail is only three and a half miles long, starting out at the Alpental parking lot and continuing mostly flat until a few mild switchbacks at the end climbing up over a ridge and down to the lake. As the name suggests, it's a great snow hike!
+
+![](/images/3dp/snow1.jpg)
+
+![](/images/3dp/snow_lake_view.jpg)
+
+Looking down into the lake from the ridge.
+
+![](/images/3dp/snow2.jpg)
+
+![](/images/3dp/snow_lake_fog.jpg)
+
+Standing in the lake. You'll have to imagine the view... 
 
 ## Tokul
 
