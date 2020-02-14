@@ -10,21 +10,22 @@ I love hiking and mountain biking, but between college and other obligations I'v
 
 That's where I got the idea of creating 3D printed trail maps! I download public elevation data, overlay my favorite trails, add some text, and print out physical maps.
 
+![](/images/3dp/tokul_printing.gif)
+
 They print with a raised impression of the trail which I then paint, so you can both see and feel the path of the trail. I also make a pass through in a vector image editor, smoothing out the gpx tracks and using my memory of the trail to make them as accurate as possible.
 
 Check out a few of the maps I've made so far below!
 * [Tiger Mountain](#tiger-mountain)
 * [Hansen Ridge](#hansen-ridge)
-* [Mason Lake](#mason-lake)
+* [Mason Lake](#mason-lake)*
 * [Rachel Lake](#rachel-lake)
 * [Snow Lake](#snow-lake)
-* [Tokul](#tokul)
-
-![](/images/3dp/tokul_printing.gif)
+* [Tokul](#tokul) <br />
+\* I've shared this model on Thingiverse, link in description.
 
 And if you like them, feel free to reach out! I'd be happy to make more if you're interested.
 
-The elevation data I'm using has a resolution of 1/3 arc-second, or about ten meters, so short trails or those with low elevation gain won't turn out nice. But upscaling this data to look nice blown up is on my to-do list! (Which due to work, school, and a research project I'm participating in as an unfortunately long list for the time being...)
+The elevation data I'm using has a resolution of 1/3 arc-second, or about ten meters, so short trails or those with low elevation gain won't turn out nice. But upscaling this data to look nice blown up is on my to-do list! (Which due to work and school in as an unfortunately long list for the time being...)
 
 ## Tiger Mountain
 
@@ -58,6 +59,8 @@ I also decided to push the limit and see how small I could print these!
 
 The Ira Spring trail is a fun 7.5 mile hike that takes you to Mason Lake, a small alpine lake sheltered by a ridge. It's a nice place to camp or just hang out, and the exposed ridgeline on the way up makes for incredible views!
 
+[I've shared this model on Thingiverse.](https://www.thingiverse.com/thing:4072547)
+
 ![](/images/3dp/mason1.jpg)
 
 ![](/images/3dp/mason_slope.jpg)
@@ -65,8 +68,6 @@ The Ira Spring trail is a fun 7.5 mile hike that takes you to Mason Lake, a smal
 ![](/images/3dp/mason2.jpg)
 
 ![](/images/3dp/mason_lake.jpg)
-
-[I've shared this model on Thingiverse.](https://www.thingiverse.com/thing:4072547)
 
 ## Rachel lake
 
@@ -94,7 +95,7 @@ Looking down into the lake from the ridge.
 
 ![](/images/3dp/snow_lake_fog.jpg)
 
-Standing in the lake. You'll have to imagine the view... 
+Standing in the lake. You'll have to imagine the view...
 
 ## Tokul
 
