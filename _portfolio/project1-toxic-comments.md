@@ -303,7 +303,7 @@ feature level probabilities on the input features. The default parameter is 1.0.
 0.9 | 0.8019
 1.0 | 0.8015
 
-The weight of the features transformed by Naive Bayes doesn’t have much effect of the model’s performance.
+The weight of the features transformed by Naive Bayes doesn’t have much effect of the model’s performance, only about a 0.006% gain between 0.1 and 1.0. But at 1.0, it offers a nice 1.31% versus without it. My takeaway is that the information that this transformation introduces isn't impacted much by the weight given to it, at least when combined with the SVM algorithm. 
 
 ### Step 3: SVM Parameter Tuning
 #### Parameter 1: Kernel
@@ -348,7 +348,7 @@ You can see a confusion matrix where the predictions are matched with reality be
 
 As discussed before, the F1 Score provides a target that helps a model find the nuance in an imbalanced dataset between catching the positive results without focusing on them to a point where the usefulness of the model suffers. A confusion matrix can illustrate the concept of balancing true positives and true negatives, as well as accuracy, recall, and precision.
 
-Let's look finally at the impact that these results have on a moderator's work. On the validation set, this model flagged less than 3% of the clean comments as toxic, while over 89% of the toxic comments were captured. Of the  
+Let's look finally at the impact that these results have on a moderator's work. On the validation set, this model flagged less than 3% of the clean comments as toxic, while over 89% of the toxic comments were captured.
 
 Overall, I do believe that this model is robust enough for this application and it offers a large advantage over both the standard approach of human flagging for review (though I wouldn’t eliminate that as a feature) and an out-of-the-box model. Of the comments would be submitted to a moderator review by the model, 76% are toxic.
 
