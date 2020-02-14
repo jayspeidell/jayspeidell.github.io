@@ -303,7 +303,7 @@ feature level probabilities on the input features. The default parameter is 1.0.
 0.9 | 0.8019
 1.0 | 0.8015
 
-The weight of the features transformed by Naive Bayes doesn’t have much effect of the model’s performance, only about a 0.006% gain between 0.1 and 1.0. But at 1.0, it offers a nice 1.31% versus without it. My takeaway is that the information that this transformation introduces isn't impacted much by the weight given to it, at least when combined with the SVM algorithm. 
+The weight of the features transformed by Naive Bayes doesn’t have much effect of the model’s performance, only about a 0.006% gain between 0.1 and 1.0. But at 1.0, it offers a nice 1.31% versus without it. My takeaway is that the information that this transformation introduces isn't impacted much by the weight given to it, at least when combined with the SVM algorithm.
 
 ### Step 3: SVM Parameter Tuning
 #### Parameter 1: Kernel
@@ -311,7 +311,7 @@ SVMs have a number of parameter options. The root option is the kernel, and othe
 
 This is a large dataset, and a major benefit of the linear kernel is that is is a parametric model, meaning that it has finite dimensionality regardless of the size of the input data. The gaussian kernel is better suited for nonlinear datasets, but it comes at the cost of being a non-parametric model. As the input data grows, it becomes more expensive computational to for both training and prediction.
 
-Result of testing gaussian kernel: 30+ minute training on a computer with 8 virtual processors and 52GB of RAM and had slow, high-memory prediction. This is not a viable solution and will not be further pursued.
+Result of testing gaussian kernel: 30+ minute training on a computer with 8 virtual processors and 52GB of RAM and a slow predition step. This is not a viable solution and will not be further pursued.
 
 #### Parameter 2: Penalty for error term
 Going with the linear kernel, there is only one major parameter to tune: C. This is the coefficient for the L2 penalization. The default is 1.0, and I will test 0.5, 0.7, and 0.9.
