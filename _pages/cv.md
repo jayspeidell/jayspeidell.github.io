@@ -43,7 +43,7 @@ Made with LaTeX.
 * Javascript (Beginner, Small Projects)
 * Python (Advanced, Use Daily, Open Source Contributions)
 
-(Beginner: I can understand what's going on and get things done, Intermediate: I'm comfortable digging in and figuring things out, Advanced: I can comfortably scan code and know what's going on and develop productively with reference materials, Expert: I no longer rely on reference materials to refresh my memory on core aspects of the language. )
+(Beginner: I can work on simpler projects, Intermediate: I'm comfortable digging in and figuring things out, Advanced: I can comfortably scan larger repositories, understand what's going on, and develop productively using reference materials, Expert: I no longer rely on reference materials to refresh my memory on core aspects of the language. )
 
 ### Data Skills
 * Data Visualization
