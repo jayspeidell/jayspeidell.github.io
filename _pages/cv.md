@@ -28,6 +28,8 @@ Made with LaTeX.
 * [Experience](#work-experience)<br />
 * [Projects](#projects)<br />
 
+<hr>
+
 # Education
 
 * B.S. in Computer Science, Old Dominion University, 2020
