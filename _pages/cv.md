@@ -21,76 +21,55 @@ For a demonstration of my data science and programing skills, check out my [Proj
 
 Made with LaTeX.  
 {:/comment}
-<a href="/images/resume/Jay_Speidell.pdf">Download My Resume (PDF)</a>
+<a href="/images/resume/Jay_Speidell.pdf" target="_blank">Download My Resume for Humans (PDF)</a> <br />
+<a href="/images/resume/Jay_Speidell_ATS.docx">Download My Resume for ATS Systems (docx)</a>
+
+<hr>
 
 * [Education](#education)<br />
 * [Skills](#skills)<br />
-* [Experience](#work-experience)<br />
 * [Projects](#projects)<br />
+* [Experience](#work-experience)<br />
 
 <hr>
 
 # Education
 
-* B.S. in Computer Science, Old Dominion University, 2020
-* B.A. in English, Virginia Tech, 2011
+* ![-ico](\images\ico\odu.svg) B.S. in Computer Science, Old Dominion University, 2020
+*  ![-ico](\images\ico\Virginia_Tech_Hokies_logo.svg) B.A. in English, Virginia Tech, 2011
 
 <hr>
 
 # Skills
 ### Programming Languages
 * ![-ico](\images\ico\clang.svg) C (Intermediate, DSA Exercises)
-* ![-ico](\images\ico\icons8-c++.svg) C++ (Advanced, Medium Sized Projects)
+* ![-ico](\images\ico\icons8-c++.svg) C++ (High-Intermediate, Medium Sized Projects)
 * ![-ico](\images\ico\icons8-java.svg) Java (Intermediate, Larger Projects)
-* ![-ico](\images\ico\icons8-javascript.svg) Javascript (Beginner, Small Projects)
-* ![-ico](\images\ico\icons8-python.svg) Python  (Advanced, Use Daily, Open Source Contributions)
-
-(Beginner: I can work on simpler projects, Intermediate: I'm comfortable digging in and figuring things out, Advanced: I can comfortably scan larger repositories, understand what's going on, and develop productively using reference materials, Expert: I no longer rely on reference materials to refresh my memory on core aspects of the language. )
+* ![-ico](\images\ico\icons8-python.svg) Python (Advanced, Use Daily, Open Source Contributions)
 
 ### Data Skills
-* Data Visualization 
+* Data Visualization
 * Exploratory Data analysis
 * Machine Learning
 * SQL
 * Statistics
 
 ### Computer Science Knowledge
-* Collaborative Development
-* Cloud Computing Environments
-(AWS,GCE)
-* Linux
-* Software Engineering
-* Team Programming
-* Version Control (Git, Github)
+* Cloud Computing Environments <br /> ![-ico](\images\ico\Amazon_Web_Services_Logo.svg) ![-ico](\images\ico\gce.svg)
+(AWS, Google Compute Engine)
+* Continuous Integration
+* Linux ![-ico](\images\ico\Tux.svg)
+* Software Engineering <br /> ![-ico](\images\ico\UML_logo.svg) (Unified Modeling Language)
+*  Unit Testing <br /> ![-ico](\images\ico\junit.png) ![-ico](\images\ico\pytest.webp)  (Junit, Pytest)
+* Version Control <br /> ![-ico](\images\ico\Git-logo.svg)  (Git, Github, Gitlab)
+*  Virtual Environments <br /> ![-ico](\images\ico\conda.svg) ![-ico](\images\ico\jupyter.svg) (Conda, Jypyter)
 
 ### Design
-* ![-ico](\images\ico\Openscad_SVG.svg) ![-ico](\images\ico\icons8-python.svg) 3D Modeling (OpenSCAD, Python)
-* ![-ico](\images\ico\icons8-adobe-indesign.svg) ![-ico](\images\ico\LaTeX_logo.svg) Document Design (InDesign / LaTeX)
-* ![-ico](\images\ico\icons8-adobe-photoshop.svg) Photo Editing (PhotoShop)
-* ![-ico](\images\ico\UML_logo.svg) Software Engineering (Unified Modeling Language)
-* ![-ico](\images\ico\icons8-adobe-illustrator.svg) Vector Graphics (Illustrator / Inkscape)
-*  ![-ico](\images\ico\html5.svg) ![-ico](\images\ico\CSS3_logo_and_wordmark.svg) Web Design (HTML / CSS)
-
-<hr>
-
-# Work experience
-### Marketing Manager @ Momentum, Inc \| Nov '15 to Present
-Seattle, WA
-* Wrote industry-leading content on financial institution retail and workplace issues.
-* Created some of the best proposals in the industry.
-* Analyzed the credit union market using Python and Jupyter Notebooks, creating geographic data and maps to focus business development efforts.
-* Led a website redevelopment project, improving site navigation and boosting engagement among target demographic.
-* Led a CRM and Marketing Automation migration project that resulted in higher engagement and better lead capture and follow-up.
-
-### Special Projects Manager @ The Speidell Group \| Mar '08 to May '15
-Lynchburg, VA
-* Created engaging photo, video, and written content for clients
-* Led the development of an automated estimation and proposal system via a third party developer.
-
-### Kindergarten Teacher @ Multiple Private Schools \| Jul '11 to Mar '14
-Seoul, South Korea
-### Reporter @ The Collegiate Times \| May'10 - Jun'11
-Blacksburg, VA
+* 3D Modeling  <br /> ![-ico](\images\ico\Openscad_SVG.svg) ![-ico](\images\ico\icons8-python.svg) (OpenSCAD, Python)
+* Document Design and Layout <br /> ![-ico](\images\ico\icons8-adobe-indesign.svg) ![-ico](\images\ico\LaTeX_logo.svg) (InDesign, LaTeX)
+* Photo Editing  <br /> ![-ico](\images\ico\icons8-adobe-photoshop.svg) (GIMP, PhotoShop)
+* Vector Graphics  <br /> ![-ico](\images\ico\icons8-adobe-illustrator.svg)![-ico](\images\ico\Inkscape-HIG-mental.svg) (Illustrator, Inkscape)
+*  Web Design <br /> ![-ico](\images\ico\html5.svg) ![-ico](\images\ico\CSS3_logo_and_wordmark.svg) ![-ico](\images\ico\react.svg)  (HTML, CSS, React)
 
 <hr>
 
@@ -122,3 +101,24 @@ Blacksburg, VA
 ### Super Moon Attack
 * Developed a game in Python where you can fly a space ship over the surface of the moon and shoot aliens.
 * [View the project repository on GitHub](https://github.com/jayspeidell/super-moon-attack){:target="_blank"}
+
+<hr>
+
+# Work experience
+### Marketing Manager @ Momentum, Inc \| Nov '15 to Present
+Seattle, WA
+* Write industry-leading content on financial institution retail and workplace issues.
+* Create some of the best proposals in the industry.
+* Analyze the credit union market using Python and Jupyter Notebooks, creating geographic data and maps to focus business development efforts.
+* Led a website redevelopment project, improving site navigation and boosting engagement among target demographic.
+* Led a CRM and Marketing Automation migration project that resulted in higher engagement and better lead capture and follow-up.
+
+### Special Projects Manager @ The Speidell Group \| Mar '08 to May '15
+Lynchburg, VA
+* Created engaging photo, video, and written content for clients
+* Led the development of an automated estimation and proposal system via a third party developer.
+
+### Kindergarten Teacher @ Multiple Private Schools \| Jul '11 to Mar '14
+Seoul, South Korea
+### Reporter @ The Collegiate Times \| May'10 - Jun'11
+Blacksburg, VA
