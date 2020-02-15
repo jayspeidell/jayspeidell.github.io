@@ -81,8 +81,8 @@ analytics:
 # Site Author
 author:
   name             : "Jay Speidell"
-  avatar           : "profile.jpg"
-  bio              : "A data science enthusiast pursuing a degree in computer science."  
+  avatar           : "profile.png"
+  bio              : "A data science enthusiast pursuing a degree in computer science."
   location         : "Seattle, WA"
   employer         :
   pubmed           :
