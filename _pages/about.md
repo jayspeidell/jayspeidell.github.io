@@ -8,8 +8,12 @@ redirect_from:
   - /about.html
 ---
 
-I'm a sales and marketing professional in Seattle pursuing continuing education to build a career in data science. For the past three years I've been teaching myself programming, math, statistics, and machine learning. I'm also studying Computer Science at Old Dominion University with an expected graduation date of August 2020.
+Thanks for visitng my portfolio website! I'm a Computer Science major graduating this summer and excited to kick off my career in data science! I've spend the last four year independently studying math, stats, programming, and machine learning alongside pursuing my B.S. in Computer Science at Old Dominion University.
 
-In what little free time I have you'll find me doing Kaggle competitions, 3D printing, hiking, and mountain biking!
+I built this website to to give you an idea of the skills I've developed, the technologies and frameworks I've learned, and the projects I've completed. Check out the Projects and Resume tabs to learn more and see how I can add value to your data science team.
 
-While you're here, check out a sample of projects I've worked on and my 3D printed trail maps!
+I'd also like to add some additional context that might not come across on paper. My career experience is very well rounded and I bring a unique perspective to the table. I come from a marketing background, and continue to work full time as a Marketing Manager as I pursue my education. I've also worked as a teacher for several years before that.
+
+I have a true passion for math and numbers, but I also bring to the table the ability to communicate and translate highly technical concepts and jargon into terms that a lay person can understand and engage with. I believe that this combination of teaching, communication, and technology skills will make me an exceptional data scientist.
+
+And while you're here, check out my 3D printed trail maps! It's an original concept I created to merge my interests of hiking and mountain biking with data and programming. 
