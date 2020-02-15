@@ -39,16 +39,16 @@ Made with LaTeX.
 
 # Skills
 ### Programming Languages
-* C (Intermediate, DSA Exercises)
-* C++ (Advanced, Medium Sized Projects)
-* Java (Intermediate, Larger Projects)
-* Javascript (Beginner, Small Projects)
-* Python (Advanced, Use Daily, Open Source Contributions)
+* ![-ico](\images\ico\clang.svg) C (Intermediate, DSA Exercises)
+* ![-ico](\images\ico\icons8-c++.svg) C++ (Advanced, Medium Sized Projects)
+* ![-ico](\images\ico\icons8-java.svg) Java (Intermediate, Larger Projects)
+* ![-ico](\images\ico\icons8-javascript.svg) Javascript (Beginner, Small Projects)
+* ![-ico](\images\ico\icons8-python.svg) Python  (Advanced, Use Daily, Open Source Contributions)
 
 (Beginner: I can work on simpler projects, Intermediate: I'm comfortable digging in and figuring things out, Advanced: I can comfortably scan larger repositories, understand what's going on, and develop productively using reference materials, Expert: I no longer rely on reference materials to refresh my memory on core aspects of the language. )
 
 ### Data Skills
-* Data Visualization
+* Data Visualization 
 * Exploratory Data analysis
 * Machine Learning
 * SQL
@@ -64,11 +64,12 @@ Made with LaTeX.
 * Version Control (Git, Github)
 
 ### Design
-* 3D Modeling (OpenSCAD, Python)
-* Document Design (InDesign / LaTeX)
-* Photo Editing (PhotoShop)
-* Software Engineering (Unified Modeling Language)
-* Vector Graphics (Illustrator / Inkscape)
+* ![-ico](\images\ico\Openscad_SVG.svg) ![-ico](\images\ico\icons8-python.svg) 3D Modeling (OpenSCAD, Python)
+* ![-ico](\images\ico\icons8-adobe-indesign.svg) ![-ico](\images\ico\LaTeX_logo.svg) Document Design (InDesign / LaTeX)
+* ![-ico](\images\ico\icons8-adobe-photoshop.svg) Photo Editing (PhotoShop)
+* ![-ico](\images\ico\UML_logo.svg) Software Engineering (Unified Modeling Language)
+* ![-ico](\images\ico\icons8-adobe-illustrator.svg) Vector Graphics (Illustrator / Inkscape)
+*  ![-ico](\images\ico\html5.svg) ![-ico](\images\ico\CSS3_logo_and_wordmark.svg) Web Design (HTML / CSS)
 
 <hr>
 
