@@ -90,7 +90,7 @@ Made with LaTeX.
 ### Mercari Price Suggestion Challenge on Kaggle
 * Performed exploratory data analysis on the Mercari item pricing data.
 * Built an ensembling algorithm that trains models in a sequence, using the output of multiple models as features in an ensemble model.
-* Placed in the top 18\%
+* Placed in the top 18%.
 * [View my project notebook on kaggle.com](https://www.kaggle.com/jayspeidell/predictions-as-features){:target="_blank"}
 
 ### Bike Sharing Demand on Kaggle
