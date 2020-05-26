@@ -35,36 +35,41 @@ Made with LaTeX.
 
 # Education
 
-* ![-ico](\images\ico\odu.svg) B.S. in Computer Science, Old Dominion University, 2020
+* ![-ico](\images\ico\odu.svg) B.S. in Computer Science, Old Dominion University, 2020 (3.94 GPA)
 *  ![-ico](\images\ico\Virginia_Tech_Hokies_logo.svg) B.A. in English, Virginia Tech, 2011
 
 <hr>
 
 # Skills
 ### Programming Languages
-* ![-ico](\images\ico\clang.svg) C (Intermediate, DSA Exercises)
-* ![-ico](\images\ico\icons8-c++.svg) C++ (High-Intermediate, Medium Sized Projects)
-* ![-ico](\images\ico\icons8-java.svg) Java (Intermediate, Larger Projects)
-* ![-ico](\images\ico\icons8-python.svg) Python (Advanced, Use Daily, Open Source Contributions)
+* ![-ico](\images\ico\clang.svg) C (Intermediate)
+* ![-ico](\images\ico\icons8-c++.svg) C++ (High-Intermediate)
+* ![-ico](\images\ico\icons8-java.svg) Java (Intermediate)
+* ![-ico](\images\ico\icons8-python.svg) Python (Advanced)
+  * Incl. Flask, Keras, Numpy, Pandas, Pyplot, Scikit-Learn, Seaborn, Tensorflow
 
-### Data Skills
+### Data Science
 * Data Visualization
 * Exploratory Data analysis
 * Machine Learning
-* SQL
+* Relational Databases
+  * Elasticsearch
+  * SQL
 * Statistics
 
-### Computer Science Knowledge
+### Computer Science Skills
 * Cloud Computing Environments <br /> ![-ico](\images\ico\Amazon_Web_Services_Logo.svg) ![-ico](\images\ico\gce.svg)
 (AWS, Google Compute Engine)
 * Continuous Integration
 * Linux ![-ico](\images\ico\Tux.svg)
+* Rest APIs (Flask)
 * Software Engineering <br /> ![-ico](\images\ico\UML_logo.svg) (Unified Modeling Language)
-*  Unit Testing <br /> ![-ico](\images\ico\junit.png) ![-ico](\images\ico\pytest.webp)  (Junit, Pytest)
-* Version Control <br /> ![-ico](\images\ico\Git-logo.svg)  (Git, Github, Gitlab)
-*  Virtual Environments <br /> ![-ico](\images\ico\conda.svg) ![-ico](\images\ico\jupyter.svg) (Conda, Jypyter)
+  * Project Management
+  * Unit Testing <br /> ![-ico](\images\ico\junit.png) ![-ico](\images\ico\pytest.webp)  (Junit, Pytest)
+  * Version Control <br /> ![-ico](\images\ico\Git-logo.svg)  (Git, Github, Gitlab)
+* Virtual Environments <br /> ![-ico](\images\ico\conda.svg) ![-ico](\images\ico\jupyter.svg) (Conda, Jypyter)
 
-### Design
+### Design Skills
 * 3D Modeling  <br /> ![-ico](\images\ico\Openscad_SVG.svg) ![-ico](\images\ico\icons8-python.svg) (OpenSCAD, Python)
 * Document Design and Layout <br /> ![-ico](\images\ico\icons8-adobe-indesign.svg) ![-ico](\images\ico\LaTeX_logo.svg) (InDesign, LaTeX)
 * Photo Editing  <br /> ![-ico](\images\ico\icons8-adobe-photoshop.svg) (GIMP, PhotoShop)
@@ -76,8 +81,8 @@ Made with LaTeX.
 # Projects
 
 ### Toxic Comment Classification
+* Built a Support Vector Machine model incorporating Naive Bayes feature weights that predicts whether Wikipedia comments are toxic.
 * Performed a visual analysis on a public database of Wikipedia comments.  
-* Built a Support Vector Machine model incorporating Naive Bayes feature weights that classifies the toxicity of Wikipedia comments into several categories.
 * [Read a report about my analysis, process, and results.](/portfolio/project1-toxic-comments/){:target="_blank"}
 
 ### PySwarms Open Source Contribution
@@ -107,16 +112,13 @@ Made with LaTeX.
 # Work experience
 ### Marketing Manager @ Momentum, Inc \| Nov '15 to Present
 Seattle, WA
-* Write industry-leading content on financial institution retail and workplace issues.
-* Create some of the best proposals in the industry.
-* Analyze the credit union market using Python and Jupyter Notebooks, creating geographic data and maps to focus business development efforts.
-* Led a website redevelopment project, improving site navigation and boosting engagement among target demographic.
-* Led a CRM and Marketing Automation migration project that resulted in higher engagement and better lead capture and follow-up.
+* Drove increased marketing and sales performance through a CRM conversion, website optimization, an industry-leading blog, and high-value demand generation content.
+* Developed effective annual marketing strategies that delivered on overall organizational goals.
 
 ### Special Projects Manager @ The Speidell Group \| Mar '08 to May '15
 Lynchburg, VA
-* Created engaging photo, video, and written content for clients
-* Led the development of an automated estimation and proposal system via a third party developer.
+* Managed the production of photo and video marketing \newline materials.
+* Led the development of an automated estimation and proposal system to replace a manual process.
 
 ### Kindergarten Teacher @ Multiple Private Schools \| Jul '11 to Mar '14
 Seoul, South Korea
