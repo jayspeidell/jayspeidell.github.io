@@ -21,8 +21,7 @@ For a demonstration of my data science and programing skills, check out my [Proj
 
 Made with LaTeX.  
 {:/comment}
-<a href="/images/resume/Jay_Speidell.pdf" target="_blank">Download My Resume for Humans (PDF)</a> <br />
-<a href="/images/resume/Jay_Speidell_ATS.docx">Download My Resume for ATS Systems (docx)</a>
+<a href="/images/resume/Jay_Speidell.pdf" target="_blank">Download My Resume (PDF)</a>
 
 <hr>
 
@@ -57,7 +56,7 @@ Made with LaTeX.
   * SQL
 * Statistics
 
-### Computer Science Skills
+### Computer Science
 * Cloud Computing Environments <br /> ![-ico](\images\ico\Amazon_Web_Services_Logo.svg) ![-ico](\images\ico\gce.svg)
 (AWS, Google Compute Engine)
 * Continuous Integration
@@ -69,7 +68,7 @@ Made with LaTeX.
   * Version Control <br /> ![-ico](\images\ico\Git-logo.svg)  (Git, Github, Gitlab)
 * Virtual Environments <br /> ![-ico](\images\ico\conda.svg) ![-ico](\images\ico\jupyter.svg) (Conda, Jypyter)
 
-### Design Skills
+### Design
 * 3D Modeling  <br /> ![-ico](\images\ico\Openscad_SVG.svg) ![-ico](\images\ico\icons8-python.svg) (OpenSCAD, Python)
 * Document Design and Layout <br /> ![-ico](\images\ico\icons8-adobe-indesign.svg) ![-ico](\images\ico\LaTeX_logo.svg) (InDesign, LaTeX)
 * Photo Editing  <br /> ![-ico](\images\ico\icons8-adobe-photoshop.svg) (GIMP, PhotoShop)
