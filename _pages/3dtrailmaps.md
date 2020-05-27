@@ -15,8 +15,8 @@ That's where I got the idea of creating 3D printed trail maps! I download public
 They print with a raised impression of the trail which I then paint, so you can both see and feel the path of the trail. I also make a pass through in a vector image editor, smoothing out the gpx tracks and using my memory of the trail to make them as accurate as possible.
 
 Check out a few of the maps I've made so far below!
-* [Tiger Mountain](#tiger-mountain)
-* [Hansen Ridge](#hansen-ridge)
+* [Tiger Mountain](#tiger-mountain)*
+* [Hansen Ridge](#hansen-ridge)*
 * [Mason Lake](#mason-lake)*
 * [Rachel Lake](#rachel-lake)
 * [Snow Lake](#snow-lake)
@@ -31,6 +31,8 @@ The elevation data I'm using has a resolution of 1/3 arc-second, or about ten me
 
 Tiger Mountain is one of the most popular trail systems near Seattle. My favorite trail here is Predator, but I'm biased because this is the first major trail projects I've worked on and I spent many hours working on it while I was looking for work after moving to Seattle.
 
+[I've shared this model on Thingiverse](https://www.thingiverse.com/thing:4400473){:target="_blank"}
+
 ![](/images/3dp/tiger4.jpg)
 
 ![](/images/3dp/tiger2.jpg)
@@ -40,6 +42,8 @@ Tiger Mountain is one of the most popular trail systems near Seattle. My favorit
 ## Hansen Ridge
 
 Hansen Ridge is by far my favorite cross country ride anywhere. It's a reversed lollipop loop along an exposed ridgeline with a cool lake at the end. Maps don't do it justice, but in 3D you can get a feel for the scale of the ridgelines and epic views you'll experience here.
+
+[I've shared this model on Thingiverse](https://www.thingiverse.com/thing:4400517){:target="_blank"}
 
 ![](/images/3dp/hansenlk.jpg)
 
@@ -59,7 +63,7 @@ I also decided to push the limit and see how small I could print these!
 
 The Ira Spring trail is a fun 7.5 mile hike that takes you to Mason Lake, a small alpine lake sheltered by a ridge. It's a nice place to camp or just hang out, and the exposed ridgeline on the way up makes for incredible views!
 
-[I've shared this model on Thingiverse.](https://www.thingiverse.com/thing:4072547)
+[I've shared this model on Thingiverse.](https://www.thingiverse.com/thing:4072547){:target="_blank"}
 
 ![](/images/3dp/mason1.jpg)
 
