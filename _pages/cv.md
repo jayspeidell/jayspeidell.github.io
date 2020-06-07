@@ -10,25 +10,15 @@ redirect_from:
 {% include base_path %}
 
 {::comment}
-For a demonstration of my data science and programing skills, check out my [Projects](/projects/) page.
 
-<object data="/images/resume/Jay_Speidell.pdf#pagemode=none" type="application/pdf" width="700px" height="910px" >
-        <p>
-            This browser does not support PDFs. Please download the PDF to view it: <a href="/images/resume/Jay_Speidell.pdf">Download PDF</a>.
-        </p>
-
-</object>
-
-Made with LaTeX.  
 {:/comment}
-<a href="/images/resume/Jay_Speidell.pdf" target="_blank">Download My Resume (PDF)</a>
-
+[Download My Resume (PDF)](/images/resume/Jay_Speidell.pdf){:target="_blank"}
 <hr>
 
 * [Education](#education)<br />
 * [Skills](#skills)<br />
 * [Projects](#projects)<br />
-* [Experience](#work-experience)<br />
+* [Work Experience](#work-experience)<br />
 
 <hr>
 
@@ -111,12 +101,14 @@ Made with LaTeX.
 # Work experience
 ### Marketing Manager @ Momentum, Inc \| Nov '15 to Present
 Seattle, WA
-* Drove increased marketing and sales performance through a CRM conversion, website optimization, an industry-leading blog, and high-value demand generation content.
 * Developed effective annual marketing strategies that delivered on overall organizational goals.
+* Drove increased marketing and sales performance through a CRM conversion, website optimization, an industry-leading blog, and high-value demand generation content.
+* Authored and designed the data-drive whitepaper [A Study of Credit Union Workplaces and the Future of Work](https://cdn2.hubspot.net/hubfs/6312112/A%20Study%20of%20Credit%20Union%20Workplaces%20-%20Momentum.pdf){:target="_blank"}.
+
 
 ### Special Projects Manager @ The Speidell Group \| Mar '08 to May '15
 Lynchburg, VA
-* Managed the production of photo and video marketing \newline materials.
+* Managed the production of photo and video marketing materials.
 * Led the development of an automated estimation and proposal system to replace a manual process.
 
 ### Kindergarten Teacher @ Multiple Private Schools \| Jul '11 to Mar '14
