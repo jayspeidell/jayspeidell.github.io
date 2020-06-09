@@ -35,7 +35,7 @@ redirect_from:
 * ![-ico](\images\ico\icons8-c++.svg) C++ (High-Intermediate)
 * ![-ico](\images\ico\icons8-java.svg) Java (Intermediate)
 * ![-ico](\images\ico\icons8-python.svg) Python (Advanced)
-  * Incl. Flask, Keras, Numpy, Pandas, Pyplot, Scikit-Learn, Seaborn, Tensorflow
+  * Incl. Flask, Keras, Numpy, Pandas, Pyplot, PyTorch, Scikit-Learn, Seaborn, Tensorflow
 
 ### Data Science
 * Data Visualization
@@ -69,22 +69,23 @@ redirect_from:
 
 # Projects
 
-### [Toxic Comment Classification (View On Projects Page)](../portfolio/project05-toxic-comments)
+### Toxic Comment Classification
 * Built a Support Vector Machine model incorporating Naive Bayes feature weights that predicts whether Wikipedia comments are toxic.
 * Performed a visual analysis on a public database of Wikipedia comments.  
-* [Read a report about my analysis, process, and results.](/portfolio/project1-toxic-comments/){:target="_blank"}
+* [Check it out on my projects page!](/portfolio/project1-toxic-comments/){:target="_blank"}
 
-### [PySwarms Open Source Contribution (View On Projects Page)](../portfolio/project00-pyswarms)
+### PySwarms Open Source Contribution (View On Projects Page)
 * Significantly expanded the library of built-in objective functions.
 * Added the ability to use Pyplot color gradient, making it easier for researchers to visualize their objective functions.
 * Collaborated with other developers using GitHub for communication and version control.
 * Wrote unit tests to ensure contributions would be properly integrated into the project.
-* [Read a report about my work on the project.](/portfolio/project2-pyswarms/){:target="_blank"}
+* [Check it out on my projects page!](/portfolio/project2-pyswarms/){:target="_blank"}
 
-### [ODUConnect - Software Engineering Project (View On Projects Page)](../portfolio/project08-oduconnect)
-A group project to design and develop a ReactJS web app to connect industry professionals with mentoring opportunities at the university.
-I led the front end development, built a REST API, implemented continuous deployments, among other responsibilities.
- Used an MSSQL Database / Flask API / ReactJS front end stack.
+### ODUConnect - Software Engineering Project
+* A group project to design and develop a ReactJS web app to connect industry professionals with mentoring opportunities at the university.
+* I led the front end development, built a REST API, implemented continuous deployments, among other responsibilities.
+* Used an MSSQL Database / Flask API / ReactJS front end stack.
+* [Check it out on my projects page!](../portfolio/project08-oduconnect)
 
 ### Mercari Price Suggestion Challenge on Kaggle
 * Performed exploratory data analysis on the Mercari item pricing data.
