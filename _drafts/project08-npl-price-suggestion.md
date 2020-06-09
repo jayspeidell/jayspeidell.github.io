@@ -1,396 +1,892 @@
 ---
-title: "Predicting Item Prices From Descriptions with Naturla Language Processing"
-excerpt: "I performed a detailed analysis of Wikipedia comments and built a model that classifies them as toxic or nontoxic. The data was obtained from Kaggle. <br/><img src='/images/toxic/wordcloud.png'>"
+title: "Predicting Item Prices From Descriptions"
+excerpt: "This project is my entry in Kaggle's Mercari Price Suggestion Challenge,  <br/><img src='/images/mercari/brand_ecdf.png'>"
 collection: portfolio
 ---
 
-[The Jypyter notebooks and a report in PDF format can be found on my GitHub page here.](https://github.com/jayspeidell/ToxicCommentClassification-)
+
 
 <img src="/images/toxic/wordcloud.png" style="width:100%" />
 # I. Definition
 ## Project Overview
 
-Platforms that aggregate user content are the foundation of knowledge sharing on the Internet. Blogs, forums, discussion boards, and, of course, Wikipedia. But the catch is that not all people on the Internet are interested in participating nicely, and some see it as an avenue to vent their rage, insecurity, and prejudices.
 
-Wikipedia runs on user generated content, and is dependent on user discussion to curate and approve content. The problem with this is that people will frequently write things they shouldn’t, and to maintain a positive community this toxic content and the users posting it need to be removed quickly. But they don’t have the resources to hire full-time moderators to review every comment.
+```python
+import os
+os.chdir(r'D:\Python\Spyder\Kaggle Projects\Mercari')
+
+import pandas as pd
+import operator
+import matplotlib.pyplot as plt
+import numpy as np
+import nltk
+import time
+
+nltk.data.path.append(r'D:\Python\Data Sets\nltk_data')
+```
+
+
+```python
+start = time.time()
+def print_time(start):
+    time_now = time.time() - start
+    minutes = int(time_now / 60)
+    seconds = int(time_now % 60)
+    if seconds < 10:
+        print('Elapsed time was %d:0%d.' % (minutes, seconds))
+    else:
+        print('Elapsed time was %d:%d.' % (minutes, seconds))
+```
 
-This problem led the Conversation AI team<sup>[1](#resources)</sup>, owned by Alphabet, to develop a large open dataset of labeled Wikipedia Talk Page comments, which will be the dataset used for the project. The dataset is available through Kaggle<sup>[2](#resources)</sup>.
 
-The dataset has six labels that represent subcategories of toxicity, but the project is going to focus on a seventh label that represents the general toxicity of the comments.
+```python
+df = pd.read_csv('train.tsv', sep='\t')
+df_sub = pd.read_csv('test.tsv', sep='\t')
 
-The project will be done with Python and Jupyter notebooks, which will be attached.
+submission = pd.DataFrame()
+submission['test_id'] = df_sub.test_id.copy()
 
-Disclaimer: The dataset has extremely offensive language that will show up during exploratory data analysis.
+y_target = list(df.price)
+```
 
-## Problem Statement
-The goal is to create a classifier model that can predict if input text is inappropriate (toxic).
-    1. Explore the dataset to get a better picture of how the labels are distributed, how they correlate with each other, and what defines toxic or clean comments.
-    2. Create a baseline score with a simple logistic regression classifier.
-    3. Explore the effectiveness of multiple machine learning approaches and select the best for this problem.
-    4. Select the best model and tune the parameters to maximize performance.
-    5. Build a the final model with the best performing algorithm and parameters and test it on a holdout subset of the data.
+## Impute Missing Values
 
-## Metrics
-Unfortunately for the problem, but fortunately for the Wikipedia community, toxic comments are rare. Just over 10% of this dataset is labeled as toxic, but some of the subcategories are extremely rare making up less than 1% of the data.
 
-Because of this imbalance, accuracy is a practically useless metric for evaluating classifiers for this problem.
+```python
+def null_percentage(column):
+    df_name = column.name
+    nans = np.count_nonzero(column.isnull().values)
+    total = column.size
+    frac = nans / total
+    perc = int(frac * 100)
+    print('%d%% or %d missing from %s column.' %
+          (perc, nans, df_name))
 
-The Kaggle challenge based on this dataset uses ROC/AUC, or the area under a receiver operating characteristic curve, to evaluate submissions. This is a very generous metric for the challenge, as axes for the curve represent recall (a.k.a. sensitivity), the ratio of positive predictions to all samples with that label, and specificity, the ratio of negative predictions to all negative samples. This metric would work well if the positive and negative labels were relatively even, but in our case, where one label represents less than a third of a percent of the data, it’s too easy to get a high score even with hardly any true-positive predictions.
+def check_null(df, columns):
+    for col in columns:
+        null_percentage(df[col])
 
-Instead, I propose using an F1 Score, which severely penalizes models that just predict everything as either positive or negative with an imbalanced dataset.
+check_null(df, df.columns)
 
-Recall, as mentioned earlier, is the ratio of true positive predictions to positive samples. Precision, on the other hand, is the ratio of true positive predictions to the sum of all positive predictions, true and false.
+```
 
-Each gives valuable insight into a model’s performance, but they fail to show the whole picture and have weaknesses where bad models get high scores. Predicting all positive values will bring recall up to 100%, while missing true positives will be penalized. Precision will harshly penalize false positives, but a model that predicts mostly negative can achieve a high precision score whether or not the predictions are accurate.
+    0% or 0 missing from train_id column.
+    0% or 0 missing from name column.
+    0% or 0 missing from item_condition_id column.
+    0% or 6327 missing from category_name column.
+    42% or 632682 missing from brand_name column.
+    0% or 0 missing from price column.
+    0% or 0 missing from shipping column.
+    0% or 4 missing from item_description column.
 
-The F1 score is a harmonic average between precision and recall. This combines the strengths of precision and recall while balancing out their weaknesses, creating a score that can fairly evaluate models regardless of dataset imbalance.
 
-My justification for focusing on any_label as the target is that distinctions between the specific labels are relatively ambiguous, and that there is greater value focusing on general toxicity of a comment to more reliably flag it for review. This will reduce the workload of moderators who will ultimately be making the final call, and the specific category more relates to the consequences for the commenter rather than whether or not the comment should be deleted.
 
+```python
+def merc_imputer(df_temp):
+    df_temp.brand_name = df_temp.brand_name.replace(np.nan, 'no_brand')
+    df_temp.category_name = df_temp.category_name.replace(np.nan, 'uncategorized/uncategorized')
+    df_temp.item_description = df_temp.item_description.replace(np.nan, 'No description yet')
+    df_temp.item_description = df_temp.item_description.replace('No description yet', 'no_description')
+    return df_temp
 
-# II. Analysis
-Data Exploration
-This dataset contains 159,571 comments from Wikipedia. The data consists of one input feature, the string data for the comments, and six labels for different categories of toxic comments: toxic, severe_toxic, obscene, threat, insult, and identity_hate.
-The figure on the following page contains a breakdown of how the labels are distributed throughout the dataset, including overlapping data.
-As you can see in the breakdown, while most comments with other labels are also toxic, not all of them are. Only “severe_toxic” is clearly a subcategory of “toxic.” And it’s not close enough to be a labeling error. This suggests that “toxic” is not a catch-all label, but rather a subcategory in itself with a large amount of overlap. Because of this, I’m going to create a seventh label called “any_label” to represent overall toxicity of a comment. From here on in, I’m going to refer to any labeled comments as toxic, and the specific “toxic” label (along with other labels) in quotation marks.
+df = merc_imputer(df)
+df_sub = merc_imputer(df_sub)
+```
 
 
-<img src="/images/toxic/label counts.png" style="width:100%" />
-<br />*Fig 1: Label Counts*
+```python
+print('Training Data')
+check_null(df, df.columns)
+print('Submission Data')
+check_null(df_sub, df_sub.columns)
+```
 
-Only 39% of the toxic comments have only one label, and the majority have some sort of overlap. I believe that because of this, it will be much more difficult to train a classifier on specific labels than whether or not they are toxic.
-This ambiguity and the lack of explanation around it is what led me to select an aggregate label of general toxicity, what I’ve called “any_label,” as the target.
-16225 out of 159571 comments, or 10.17%, are classified as some category of toxic.
+    Training Data
+    0% or 0 missing from train_id column.
+    0% or 0 missing from name column.
+    0% or 0 missing from item_condition_id column.
+    0% or 0 missing from category_name column.
+    0% or 0 missing from brand_name column.
+    0% or 0 missing from price column.
+    0% or 0 missing from shipping column.
+    0% or 0 missing from item_description column.
+    Submission Data
+    0% or 0 missing from test_id column.
+    0% or 0 missing from name column.
+    0% or 0 missing from item_condition_id column.
+    0% or 0 missing from category_name column.
+    0% or 0 missing from brand_name column.
+    0% or 0 missing from shipping column.
+    0% or 0 missing from item_description column.
 
-1595 severe_toxic comments. (1.00% of all data.)
-* 1595 or 100.00% were also toxic.
-* 1517 or 95.11% were also obscene.
-* 112 or 7.02% were also threat.
-* 1371 or 85.96% were also insult.
-* 313 or 19.62% were also identity_hate.
 
-1405 identity_hate comments. (0.88% of all data.)
-* 1302 or 92.67% were also toxic.
-* 313 or 22.28% were also severe_toxic.
-* 1032 or 73.45% were also obscene.
-* 98 or 6.98% were also threat.
-* 1160 or 82.56% were also insult.
+# EDA
 
-15294 toxic comments. (9.58% of all data.)
-* 1595 or 10.43% were also severe_toxic.
-* 7926 or 51.82% were also obscene.
-* 449 or 2.94% were also threat.
-* 7344 or 48.02% were also insult.
-* 1302 or 8.51% were also identity_hate.
+## Shipping
 
-7877 insult comments. (4.94% of all data.)
-* 7344 or 93.23% were also toxic.
-* 1371 or 17.41% were also severe_toxic.
-* 6155 or 78.14% were also obscene.
-* 307 or 3.90% were also threat.
-* 1160 or 14.73% were also identity_hate.
 
-478 threat comments. (0.30% of all data.)
-* 449 or 93.93% were also toxic.
-* 112 or 23.43% were also severe_toxic.
-* 301 or 62.97% were also obscene.
-* 307 or 64.23% were also insult.
-* 98 or 20.50% were also identity_hate.
+```python
+df.shipping.value_counts()
+```
 
-8449 obscene comments. (5.29% of all data.)
-* 7926 or 93.81% were also toxic.
-* 1517 or 17.95% were also severe_toxic.
-* 301 or 3.56% were also threat.
-* 6155 or 72.85% were also insult.
-* 1032 or 12.21% were also identity_hate.
 
-The correlation matrix below provides more insight into these overlapping categories. Threats are not likely to be severely toxic, nor are they likely to be racist or homophobic. But insults are often obscene, and identity hate really doesn’t have much overlap at all.
 
-I believe the categories with significant overlap will be more difficult to predict, as they’ll have similar contributing features, but “identity_hate” will have more unique attributes and be easier to predict.
 
-<img src="/images/toxic/type heatmap.png" style="width:100%" />
-<br />*Fig 2: Correlation Matrix Heatmap of Labels*
+    0    819435
+    1    663100
+    Name: shipping, dtype: int64
 
-So what do these comments look like? Let’s look at a few.
 
-Clean comments:
-* “By baysian logic the picture is quite relavent. Only someone so opposed to the Vietnam war, as to visit NVN, would support something as tawdry as WSI. The photo is contemporary to the time period of the WSI, and is a very defining picture of one of the key participants during the time period that WSI took place.”
-* “Oppose. Other towers have articles, so this one should. 89.242.19.188”
-* "This sounds like your opinion.  I'm giving you National Geographic, and GW supporters give me the IPCC, a group of politicians who pick and choose articles that support the idea of anthropogenic global warming and discredit any scientist who dissents.  The reason I toss the term 'nazi' around is that it seems this article is loosely guarded by (what I call) a ""gestapo"" that sits around with an arsenal of ""talk-back"" to shoot down anyone who dissents from the idea of man-made GW.  I was talking about the Sun and how other planets are warming.  In my book, this falls under the area of astronomy, which last I checked is a science.  You seem to think science is only opinions that agree that man is causing global warming, and I'm sorry, I don't agree with that.12.26.68.146"
 
-So clean comments can be argumentative and can include name calling, but are generally positive discussions.
 
-The IP addresses in comments are concerning, as that’s a data leak and could cause issues since we want the classifier to predict toxicity based on the content of the comments. Because of this, I’ve used a regular expression to strip all of the IP addresses from the dataset.
+```python
+print('%.1f%% of items have free shipping.' % ((663100 / len(df))*100))
+```
 
-I’ve found one other data leak as well: usernames. Removing them without a database of users is an incredibly difficult task. But while removing them completely isn’t an option, the term frequency – inverse document frequency vectorizing strategy should minimize or even eliminate their influence on the model.
+    44.7% of items have free shipping.
 
-Toxic Comments:
-* “your a cocksucker u can't do anything to me”
-* “What 3 minutes every now and then - I'm not compiling lists and spending fucking hours doing fuck-all because no one loves me - how many edits have you done? Let's remember - you're so stupid and indeed pathetic you don't even use your own name”
-* “again again again
-* this is not going to stop......hmmmm a personal attack let me think......you are a big poo poo face and smell like a frog”
 
-Various types of toxic comments seem to almost always be argumentative, though they don’t necessarily involve profanity. Traditional filters involve a database of profanity to screen comments, but this breaks down when legitimate comments discuss profanity and toxic comments have clean language.
+Free shipping items should be priced higher because shipping is included in the price.
 
+### Price
 
-So what does a clean Wikipedia comment look like? I used a tokenizer with the standard stopwords to get the overall count of individual words and plotted the top 45.
 
-<img src="/images/toxic/word counts.png" style="width:100%" />
-<br />*Fig 3: Non-Toxic Comment Word Frequency*
+```python
+df.columns
+```
 
-Article, page, please, think, edit, etc. The highest frequency words are about what you would expect from people discussing Wikipedia page edits and policy.
 
-Now let’s look at what a bad comment looks like. Can you find the top two words from the clean comments? “Wikipedia” surprisingly comes in second, and “article” falls back quite a few spaces. The difference in the highest frequency vocabulary is stark.
 
-<img src="/images/toxic/toxic counts.png" style="width:100%" />
-<br />*Fig 4: Toxic Comment Word Frequency*
 
-In addition to the words themselves, I’ve extracted some other attributes of the comments that show contrast between toxic and clean comments.
+    Index(['train_id', 'name', 'item_condition_id', 'category_name', 'brand_name',
+           'price', 'shipping', 'item_description'],
+          dtype='object')
 
-* Capitalization<br/>
- Toxic comments are more likely to be either in all caps or have no capitalization at all. In an average clean comment, 5% of the characters are capital letters. In toxic comments, that number jumps to 14%. I think this feature will be extremely useful, especially with tree-based models due to it’s nonlinear nature. While the mean percentage of capital letters in toxic comments is almost triple that of clean comments, the medians are the same at 4%. This suggests that while clean comments are consistently capitalized, toxic comments have quite a few outliers. This is confirmed when browsing through the comments, as toxic comments are often all caps or not capitalized at all.
-* Comment Length<br/>
- On average, clean comments are about a third longer than toxic comments. The average character count for clean comments is 404, while toxic comments average 303 characters. Looking at random samples, many clean comments have very long, well though-out answers. The median comment lengths are 128 characters for toxic comments and 216 characters for clean comments, suggesting that these longer comments make up a significant portion of the dataset for both types of comments.
-* Word Length<br/>
- This one is a little closer, but there is a difference. Toxic comments average 4.1 characters per word, where clean comments average 4.4. But on a comment-by-comment basis this could be meaningful, as a visual scan shows that many of the toxic comments are more likely to use informal abbreviations like “u.”
-* Question Marks<br/>
- My thought here is that more legitimate posts might have more question marks. But that assumption was wrong, as toxic comments have 50% more question marks per comment than clean comments. 0.6 versus 0.4.
-* Exclamation Marks<br/>
- I made the opposite assumption about exclamation marks, and that paid off! Toxic comments have an average of 3.5 exclamation marks, while clean comments only have 0.3. This could be a very useful feature.
 
-## Algorithms and Techniques
 
-As a natural language processing problem, is a classification task that involves high dimensionality data. I will vectorize the data and test multiple classification algorithms.
 
-I will vectorize the text data using the term frequency – inverse document frequency (tf-idf) statistic. This technique takes into account not only the frequency of words or character n-grams in the text, it also takes into account the relevancy of those tokens across the dataset as a whole. The inverse document frequency reduces the weight of common tokens while boosting the weight of more unique tokens. I will establish a benchmark for performance with the top 10,000 words, and the number of tokens and the mix of words and character n-grams will be a parameter to tune for higher performance later on.
+```python
+print('$1 items: ' + str(df.price[df.price == 1].count()))
+print('$2 items: ' + str(df.price[df.price == 2].count()))
+print('$3 items: ' + str(df.price[df.price == 3].count()))
+```
 
-I will also create a number of engineered features containing various attributes of the comment text, such as average word length, capitalization, and number of exclamation points. I will run the benchmark test without these features and experiment with them to optimize the solution.
+    $1 items: 0
+    $2 items: 0
+    $3 items: 18703
 
-With the benchmark vectorization and features, I will experiment with multiple algorithms with default parameters to determine the most effective approach to the problem. The models I will use are:
-* Logistic Regresssion (Benchmark)
-* Multinomial Naive Bayes
-* Support Vector Machine
-* Support Vector Machine with Naive Bayes Features
-* Light GBM
 
-Recurrent neural networks work well on this problem and top Kaggle leaderboards, but I think deep learning approaches might be too resource intensive for an algorithm that has to run instantly every single time a comment is posted on one of the most popular websites on the Internet. A major requirement if this were a real-life business problem is efficiency. Additionally, adapting the model to secondary features would require stacking, which is a messy solution that increases the complexity of both training and predicting. I’ve used model stacking in Kaggle competitions before, and it comes at the expense of efficiency.
+There is a minimum price of $3.
 
-One more consideration is transparency, and this is the biggest aspect of the decision not to use neural networks for this application. I want to have the ability to easily audit the model to ensure that it isn’t picking up bias around race, gender, sexual orientation, culture, or unforeseen categories from the curators of the data. SVM, Naive Bayes, and LightGBM will make it much easier for a third party to analyze the impact of specific features on the model and make appropriate adjustments to combat bias.
 
-I predict that there will be a toss-up between Logistic Regression and Support Vector Machines. Naive Bayes may have strong performance due to the dramatic difference between the the frequency distributions of the vocabulary between comments.
+```python
+plt.figure('Training Price Dist', figsize=(30,10))
+plt.title('Price Distribution for Training - 3 Standard Deviations', fontsize=32)
+plt.hist(df.price.values, bins=145, normed=False,
+         range=[0, (np.mean(df.price.values) + 3 * np.std(df.price.values))])
+plt.axvline(df.price.values.mean(), color='b', linestyle='dashed', linewidth=2)
+plt.xticks(fontsize=24)
+plt.yticks(fontsize=26)
+plt.show()
 
-Support vector machine models are unique in that they find the boundaries between classes by looking at the distances between the separating line and the nearest point for each class, and are not effected by outliers. In this project I will be using the linear kernel. The kernel trick with support vector machines involves projecting data with complex or nonlinear boundaries into a higher dimension where they are linearly separable and drawing a hyperplane between them using a linear model algorithm. Imagine a 2D problem where you have a circular boundary between two classes and need to draw your decision boundary with linear regression. With the kernel trick you’d be projecting that flat dataset into the dimensions and ideally the circle would look more like a hill, allowing you to cut through it with a 2D plane and establish a linear boundary. The linear kernel is the most efficient of the kernels and is very resistant to overfitting, which I think may be an issue with the dataset.
+print('Line indicates mean price.')
+```
 
-LightGBM is a tree-based ensemble model that is trained with gradient boosting. The unique attribute versus other boosted tree algorithms is that it grows leaf-wise rather than level-wise, meaning that it prioritizes width over depth. Boosted tree can be confused with forest models, but there is an important distinction. Where forest models like Scikit-Learn’s RandomForest use an ensemble of fully developed decision trees, boosted tree algorithms use an ensemble of weak learners that may be trained faster and can possibly generalize better on a dataset like this one where there are a very large number of features but only a select few might have an influence on any given comment.
 
-LightGBM is not a high performer on Natural Language Processing tasks, but I think it’s worth trying a tree-based model here due to the very large disparity between toxic and clean comments with the engineered features and top 30 words. There may be some great, reliable splits here. The reason it doesn’t perform well on NLP tasks is that it requires dense input data, and the nature of vectorizing text creates absolutely massive matrices filled mostly with zeros. It also has a relatively small number of features that it can focus on, while the vectorized text may contain over 20,000 features.  
+![png](/images/mercari/price_distribution.png)
 
-Support Vector Machine with Naive Bayes Features or Multinomial Naive Bayes may perform even better. The paper *Baselines and Bigrams: Simple, Good Sentiment and Topic Classification*<sup>[3](#resources)</sup> experiments with this algorithm on a variety of types of datasets and found that Support Vector Machines performed exceptionally well at sentiment analysis on datasets with lengthy texts, such as full-length movie reviews. The same paper suggest that Multinomial Naive Bayes works better on snippets of text. Assuming an average sentence length of 75 to 100 characters, the Wikipedia dataset used in this project averages 2-4 sentences, which is more than a snippet but not exactly lengthy. Naive Bayes with SVM features was found to interpolate between Naive Bayes and Support Vector Machines, combining strengths of each.
 
-After establishing a baseline score for each model, I’ll choose the best one or two, depending on how close they are, and tune the vectorization and model parameters to optimize performance.
+    Line indicates mean price.
 
-## Baseline
-The baseline model is a Logistic Regression model fit to tf-idf vectorized comment text with using only words for tokens, limited to 10,000 features. The target value is any_label, but I also want to track the model’s performance on specific categories. But I do think that it’s important to note that my personal difficulty in perceiving the difference in specific categories when looking through comments is reflected in the model’s ability to specifically predict severe_toxic, threat, and identity_hate labels.
 
-The cross-validated F1 scores for each label break down as follows:
-* toxic score: 0.7192
-* severe_toxic score: 0.3224
-* obscene score: 0.7452
-* threat score: 0.2069
-* insult score: 0.6277
-* identity_hate score: 0.2772
-* any_label score: 0.7299
+Most prices are on the lower end of the spectrum, and items priced above 145 are outliers that make up less that 0.3% of the data. Are there free items?
 
-I also tested a baseline with the engineered features included.
-* toxic score: 0.7235
-* severe_toxic score: 0.3475
-* obscene score: 0.7440
-* threat score: 0.2029
-* insult score: 0.6274
-* identity_hate score: 0.2768
-* any_label score: 0.7328
 
-The scores are nearly identical, but this may not necessarily be the case for all models.
-# III. Methodology
-## Reproducibility
-I am setting a few parameters at the top of my Jupyter notebook to ensure reproducibility of results, and these will be used in every appropriate instance. This will ensure that the output is exactly the same every time the notebook is run.
-* seed (for random states) = 42
-* k (for n_folds) = 5
+```python
+print('Free items: %d, representing %.5f%% of all items.' %
+      (df.price[df.price == 0].count(),
+        (df.price[df.price == 0].count() / df.shape[0])))
+```
 
-Experiments that take a significant amount of time, such as
-Data Preprocessing
+    Free items: 874, representing 0.00059% of all items.
 
-## Cleaning
-The dataset is relatively clean. There is a minor data leak, IP addresses appended to some comments. For various reasons, mainly that this data may slightly compromise the model’s ability to generalize to new data, I’ve used a regular expression to strip all IP addresses from comments.
 
-## Feature Engineering  
-During the exploratory data analysis, I found that many attributes of comments outside of the words themselves may be useful in predicting whether they are toxic. The features I added to the dataset are:
-* Comment length in characters
-* Percent of letters in a comment that are capitalized
-* Average length of words in a comment
-* Number of exclamation marks in a comment
-* Number of question marks in a comment
+What does free even mean here?
 
-## Vectorization
-As discussed previously, I am using a term frequency – inverse document frequency (tf-idf) statistic to vectorize text. The number of features and presence of character n-grams is a parameter to tune for model optimization.
 
-## Feature Scaling
-The engineered features are normalized from 0.0 to 1.0. The tf-idf features are not scaled.
+```python
+print('Free items where seller pays shipping: %d.' %
+      df.price[operator.and_(df.price == 0, df.shipping == 1)].count())
+```
 
-## Implementation
-Finding the Best Algorithm
-To compare the relative performances of each algorithm, I’m going to test them on the same preprocessed data as the benchmark, a tf-idf vectorized data with 10,000 features. The target is any_label, and the scores are F1 scores with five-fold cross validation.
-* Logistic Regression:  0.7299
-  * With engineered features: 0.7328
-  * Engineered feature boost: 0.39%
-* Multinomial Naive Bayes (NB):  0.6670 (0 predictions for threat category)
-  * With engineered features: 0.6734 (0 predictions for threat category)
-  * Engineered feature boost: 0.96%
-* Support Vector Machine (SVM): 0.7703
-  * With engineered features: 0.7739
-  * Engineered feature boost: 0.47% boost
-* Support Vector Machine with Naive Bayes Features (NB-SVM): 0.7804
-  * With engineered features: 0.7842
-  * Engineered feature boost: 0.49%
-* LightGBM*: 0.7470
-  * With engineered features: 0.7573
-  * Engineered feature boost: 1.38%
+    Free items where seller pays shipping: 315.
 
-\* The other algorithms used default parameters, but LightGBM parameters were modified to better suit an NLP problem as the default parameters aren’t really suited to the problem like they are with other algorithms.
 
-LightGBM Baseline Parameter Modifications:
-* 'num_leaves': 64,
-* 'n_estimators': 500,
-* 'max_depth': 16
+This is a tiny outlier. And it seems like some items the sellers actually paid to give away. I'd like to see how many items are listed for a low price but the seller is actually making money off shipping to avoid fees, a common eBay practice. Unfortunately, without data about the actual shipping price, we can't extrapolate any insights here. My approach would be to look at items that are priced lower than average yet have higher than average shipping prices for their name and descriptions.
 
-Not surprisingly, the engineered features gave the tree based model a larger performance boost than other models. The performance gain for other algorithms is modest, but it does come at an extremely minimal cost in terms of processing resources and training time so I would consider them worthwhile.  
 
-In terms of overall performance, NB-SVM is the strongest performer and SVM comes in at a close second. The naive bayes features gave SVM a 1.31% performance boost at a cost of about five times the training time. Around thirty-five seconds versus a little over three minutes, but the difference is minimal at prediction time and the gain is significant.
+```python
+print('No description:', str(df.item_description[df.item_description == 'no_description'].count()))
+print('Uncategorized:',str(df.category_name[df.category_name == 'uncategorized/uncategorized'].count()))
+```
 
-LightGBM also showed strong results with some tuning, but there is an issue with the model that prevents it from being a practical solution unless it’s performance is significantly higher than other models. Like all tree-based models, dense data is a firm requirement. Refining the text vectorization strategy is an important aspect of optimizing a natural language processing solution. Linear regression and support vector machines can run on sparse matrices which reduces their memory footprint, but LightGBM will see memory grow too fast converting sparse matrices into dense ones.  
+    No description: 82493
+    Uncategorized: 6327
 
-## Refinement of the NB-SVM Model
-### Step 1: Optimize tf-idf vectorizer
-Experiment with word and character level ngrams and maximum feature counts. All other parameters are fixed, and refinement steps will all use five-fold cross validation.
 
-**Word Ngram** | **Word Max Features** | **Char Ngram** | **Char Max Features** |  **Score**
-1 | 10,000 | 0 | 0 | 0.7842
-1 | 30,000 | 0 | 0 | 0.7926
-1-2 | 30,000 | 0 | 0 | 0.7877
-2-6 | 30,000 | 0 | 0 | 0.4042
-0 | 0 | 3-7 | 20,000 | 0.7742
-1 | 5,000 | 3-7 | 5,000 | 0.7962
-1-2 | 15,000 | 3-7 | 5,000 | 0.7985
-1-2 | 20,000 | 3-7 | 10,000 | 0.8005
-1-2 | 20,000 | 3-5 | 10,000 | 0.8015
-1-3 | 20,000 | 3-5 | 10,000 | 0.8013
+ Many items lack a description, but few lack a category.
 
-The ideal seems to be a 20,000 word ngrams in range 1-3 and 10,000 char ngrams in range 3-5, in a tie with the same settings but a 1-2 word ngram. An added benefit of these parameters is that this is a relatively fast vector to calculate.
+### Category Name
 
-### Step 2: Tune NB feature weight
-The NB feature transformer class has a parameter ‘epsilon’ that controls the influence of the
-feature level probabilities on the input features. The default parameter is 1.0.
 
-**NB Weight** | **F1 Score**
-0.1 | 0.7966
-0.2 | 0.7989
-0.3 | 0.8003
-0.4 | 0.8001
-0.5 | 0.8008
-0.6 | 0.8013
-0.7 | 0.8007
-0.8 | 0.8020
-0.9 | 0.8019
-1.0 | 0.8015
+```python
+cat_counts = np.sort(df.category_name.value_counts())
+print(str(len(cat_counts)) + ' categories total.')
+print(str(df.shape[0]) + ' records total.')
+print('Category frequency percentiles, marked by lines: \n25%%: %d, 50%%: %d, 75%%: %d, 95%%: %d, 97.5%%: %d.' %
+     (cat_counts[int(len(cat_counts)*0.25)],
+      cat_counts[int(len(cat_counts)*0.5)],
+      cat_counts[int(len(cat_counts)*0.75)],
+      cat_counts[int(len(cat_counts)*0.9)],
+      cat_counts[int(len(cat_counts)*0.95)]))
 
-The weight of the features transformed by Naive Bayes doesn’t have much effect of the model’s performance, only about a 0.006% gain between 0.1 and 1.0. But at 1.0, it offers a nice 1.31% versus without it. My takeaway is that the information that this transformation introduces isn't impacted much by the weight given to it, at least when combined with the SVM algorithm.
+title = 'Category Quantity ECDF Without Top 15 Outliers'
+plt.figure(title, figsize=(30,10))
+plt.title(title, fontsize=32)
+x = np.sort(df.category_name.value_counts())
+x = x[0:-15]
+y = np.arange(1, len(x) + 1) / len(x)
+plt.plot(x, y, marker='.', linestyle='none')
+plt.xticks(fontsize=24)
+plt.yticks(fontsize=26)
+plt.axvline(x=x[int(len(x)*0.25)], linewidth=1, color='b')
+plt.axvline(x=x[int(len(x)*0.5)], linewidth=1, color='b')
+plt.axvline(x=x[int(len(x)*0.75)], linewidth=1, color='b')
+plt.axvline(x=x[int(len(x)*0.95)], linewidth=1, color='b')
+plt.axvline(x=x[int(len(x)*0.975)], linewidth=1, color='b')
+plt.show()
+```
 
-### Step 3: SVM Parameter Tuning
-#### Parameter 1: Kernel
-SVMs have a number of parameter options. The root option is the kernel, and other options stem from there. So far, we’ve been using a linear kernel. A linear kernel fits best to datasets where the the dataset is linearly separable, and because this model vastly outperformed a well-tuned boosted tree model (LightGBM) I assume that it has a reasonable level of linear separation.
+    1288 categories total.
+    1482535 records total.
+    Category frequency percentiles, marked by lines:
+    25%: 10, 50%: 76, 75%: 593, 95%: 2509, 97.5%: 5708.
 
-This is a large dataset, and a major benefit of the linear kernel is that is is a parametric model, meaning that it has finite dimensionality regardless of the size of the input data. The gaussian kernel is better suited for nonlinear datasets, but it comes at the cost of being a non-parametric model. As the input data grows, it becomes more expensive computational to for both training and prediction.
 
-Result of testing gaussian kernel: 30+ minute training on a computer with 8 virtual processors and 52GB of RAM and a slow prediction step. This is not a viable solution and will not be further pursued.
 
-#### Parameter 2: Penalty for error term
-Going with the linear kernel, there is only one major parameter to tune: C. This is the coefficient for the L2 penalization. The default is 1.0, and I will test 0.5, 0.7, and 0.9.
+![png](/images/mercari/category_ecdf.png)
 
-**C** | **F1 Score**
-0.3 | 0.8049
-0.5 | 0.8054
-0.8 | 0.8032
-1.0 |0.8015
 
-Setting C to 0.5 instead of the default 1.0 gives a 0.51% performance increase.
 
-# IV. Results
-## Model Evaluation and Validation
-The model has been trained, tested, and optimized using training and test subsets of the data. I will use an unseen holdout subset of the data to evaluate the model.
+```python
+print('The top 75%% of categories represent %.1f%% of the dataset, and the top 50%% represent %.1f%%.' %
+      ((sum([count for count in cat_counts if count > 10]) / len(df))*100,
+       (sum([count for count in cat_counts if count > 76]) / len(df))*100))
+```
 
-The F1 Score on the holdout data is 0.8072.
+    The top 75% of categories represent 99.9% of the dataset, and the top 50% represent 99.2%.
 
-Because it’s performance is similar to the results obtained in the previous stage, I can confidently say that the model will generalize well to unseen data. Because it is a real world dataset with a huge variety of comments discussing a diverse range of topics and covering situations from informative posts to flame wars, this is probably one of the better scenarios for training a model on text.
 
-The text vectorization strategy using Scikit-Learn’s TfidfVectorizer() class makes the model immune to unseen features, as they will be ignored.
+There are a lot of uncommon or unique categories that make up a small percentage of the data. If dimensionality reduction needs to happen here, I think it would be safe to keep only the top half of category names and the remaining ~10th of a percent of data will be grouped together as items with an uncommon category.
 
-## Justification
-The final model offers a significant performance boost over the benchmark linear regression model, about 11%. So far we’ve been talking in the abstract about F1 Scores, but now let’s dig into the real world performance and what those numbers actually mean.
 
-This model has 96% accuracy. Now on the surface, that sounds great. But since this is a highly imbalanced dataset, that doesn’t mean a lot. In fact, if I had just created a model that predicted “0” for every single item, it would get an accuracy of 90%.
+```python
+title = 'Top 35 Categories'
+plt.figure(title, figsize=(30,10))
+df.category_name.value_counts()[0:35].plot(kind='bar')
+plt.title(title, fontsize=30)
+plt.yticks(fontsize=18)
+plt.xticks(fontsize=18, rotation=35, ha='right')
+plt.show()
+```
 
-The real metric of how well the model performed at predicting a toxic comment is recall. This model achieved a recall score of 0.74, which means that it correctly 74% of the actual toxic comments as toxic. That may seem low, but optimizing for recall is a tough challenge. If we used recall as a training objective, it would classify every comment as toxic and quickly reach 100% recall and make every clean comment a false positive. It's necessary then to strike a balance between precision and recall. False positives waste time, while false negatives allow toxicity to fall through the cracks.
 
-You can see a confusion matrix where the predictions are matched with reality below.
+![png](/images/mercari/top_35_cat.png)
 
-<img src="/images/toxic/results heatmap.png" style="width:100%" />
-<br />*Fig 5: Toxic Comment Confusion Matrix*
 
-As discussed before, the F1 Score provides a target that helps a model find the nuance in an imbalanced dataset between catching the positive results without focusing on them to a point where the usefulness of the model suffers. A confusion matrix can illustrate the concept of balancing true positives and true negatives, as well as accuracy, recall, and precision.
+## Brand Name
 
-Let's look finally at the impact that these results have on a moderator's work. On the validation set, this model flagged less than 3% of the clean comments as toxic, while over 89% of the toxic comments were captured.
 
-Overall, I do believe that this model is robust enough for this application and it offers a large advantage over both the standard approach of human flagging for review (though I wouldn’t eliminate that as a feature) and an out-of-the-box model. Of the comments would be submitted to a moderator review by the model, 76% are toxic.
+```python
+brand_counts = np.sort(df.brand_name.value_counts())
+print(str(len(brand_counts)) + ' brands total.')
+print(str(df.shape[0]) + ' records total.')
+print('Category frequency percentiles, marked by lines: \n25%%: %d, 50%%: %d, 75%%: %d, 95%%: %d, 97.5%%: %d.' %
+     (brand_counts[int(len(brand_counts)*0.25)],
+      brand_counts[int(len(brand_counts)*0.5)],
+      brand_counts[int(len(brand_counts)*0.75)],
+      brand_counts[int(len(brand_counts)*0.9)],
+      brand_counts[int(len(brand_counts)*0.95)]))
 
-I believe that this performance makes this model an effective tool that would both save moderators time and efficiently catch comments that may otherwise fall through the cracks. Each moderator could have a big impact on reducing toxicity in the Wikipedia community.
+title = 'Brand Quantity ECDF Without Top 25 Outliers'
+plt.figure(title, figsize=(30,10))
+plt.title(title, fontsize=32)
+x = np.sort(df.brand_name.value_counts())
+x = x[0:-25]
+y = np.arange(1, len(x) + 1) / len(x)
+plt.plot(x, y, marker='.', linestyle='none')
+plt.xticks(fontsize=24)
+plt.yticks(fontsize=26)
+plt.axvline(x=x[int(len(x)*0.25)], linewidth=1, color='b')
+plt.axvline(x=x[int(len(x)*0.5)], linewidth=1, color='b')
+plt.axvline(x=x[int(len(x)*0.75)], linewidth=1, color='b')
+plt.axvline(x=x[int(len(x)*0.95)], linewidth=1, color='b')
+plt.axvline(x=x[int(len(x)*0.975)], linewidth=1, color='b')
+plt.show()
+```
 
-# V. Conclusion
+    4810 brands total.
+    1482535 records total.
+    Category frequency percentiles, marked by lines:
+    25%: 1, 50%: 4, 75%: 23, 95%: 131, 97.5%: 396.
 
-## Reflection
-The process for this project was as follows:
-1. Analyze the problem and propose a useful solution.
-2. Explore the dataset to get a better picture of how the labels are distributed, how they correlate with each other, and what defines toxic or clean comments.
-3. Develop an objective that fits a practical use case and addresses the major class imbalance.
-4. Create a baseline score with a simple logistic regression classifier.
-5. Explore the effectiveness of multiple machine learning algorithms.
-6. Select the best model based on a balance of performance and efficiency.
-7. Refine the preprocessing strategies to optimize model performance.
-8. Tune model parameters to maximize performance.
-9. Build a the final model with the best performing algorithm and parameters and test it on a holdout subset of the data.
 
-The final model offered about 11% performance gain over the initial benchmark model, which makes it an effective solution to the problem. Even more so considering that the current system in place was hand-labeling by users via a reporting function.
 
-The most difficult yet most interesting aspect of the project was understanding the relationship between the size of input data and the performance of various machine learning algorithms. This Wikipedia dataset represents a fairly wide variety of input comment sizes compared to a more restricted platform like Twitter, where each comment is limited to 140 characters. Luckily, there is a large body of research around this problem and I was able to find a research paper that proposed an effective strategy for transforming the input data to get better performance in this middle ground where the text input is not necessarily long or short.
+![png](/images/mercari/brand_ecdf.png)
 
-Because the input size varies greatly, and because Wikipedia likely has a very distinct set of demographics versus Facebook, Twitter, or other popular platforms where you may want to classify toxic comments, I don’t believe that the model would generalize very effectively. But I do think that it work well on data from other similar platforms.  
 
-## Improvement
 
-I believe that there are a number of ways that the solution could be improved.
+```python
+print('The top 75%% of categories represent %.1f%% of the dataset, and the top 50%% represent %.1f%%.' %
+      ((sum([count for count in brand_counts if count > 1]) / len(df))*100,
+       (sum([count for count in brand_counts if count > 4]) / len(df))*100))
+```
 
-Recurrent neural networks offer extremely high performance on natural language processing problems, and if the architecture for the inferrence step were implemented efficiently the computational overhead would be minimal.
+    The top 75% of categories represent 99.9% of the dataset, and the top 50% represent 99.7%.
 
-Another great strategy could be using multiple models, a sort of divide an conquer method where the problem is divided into multiple smaller, contextual problems. While the solution laid out here generalizes to the entire dataset, no one solution will be able to generalize perfectly to the diverse variety of inputs you’ll get from Internet users. By training models on different situations, like a model that’s only been trained on short or long comments, to only detect whether a comment is toxic when profanity is present, etc, and storing them in memory, you could use a simple decision tree to feel comments into the model that would be most effective. A few that I can think of are:
-* Short comments
-* Long comments
-* “Hot” threads where the rate of commenting is high and emotions may be high
-* Comments with profanity (A general model might flag profanity as toxic, where a model trained only on comments where profanity is present may pick up on more nuance.)
-* Comments by a user who has already been flagged as toxic in the past
 
+A story similar to category_name.
 
 
-# Resources:
-1. [https://conversationai.github.io/](https://conversationai.github.io/)
-2. [https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge](https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge)
-3. [https://www.aclweb.org/anthology/P12-2018](https://www.aclweb.org/anthology/P12-2018)
-4. [https://www.kdnuggets.com/2016/06/select-support-vector-machine-kernels.html](https://www.kdnuggets.com/2016/06/select-support-vector-machine-kernels.html)
+```python
+print('%d items, or %.2f%%, are missing a brand name.' %
+      (len(df[df.brand_name == 'no_brand']),
+       len(df[df.brand_name == 'no_brand']) / len(df)))
+```
+
+    632682 items, or 0.43%, are missing a brand name.
+
+
+
+```python
+title = 'Top 35 Brands'
+plt.figure(title, figsize=(30,10))
+df.brand_name.value_counts()[1:70].plot(kind='bar')
+plt.title(title, fontsize=30)
+plt.yticks(fontsize=18)
+plt.xticks(fontsize=18, rotation=45, ha='right')
+plt.show()
+```
+
+
+![png](/images/mercari/top_35_brand.png)
+
+
+The most popular brands, PINK and Nike, are an order of magnitude less frequent than unbranded items. It seems there's a mix of company brands and individual product line brands, as we can see both Victoria's Secret and Pink as well as Nintendo and Pokemon.
+
+
+```python
+title = 'Top Half of Brands'
+plt.figure(title, figsize=(30,10))
+df.brand_name.value_counts()[50:2500].plot(kind='bar')
+plt.title(title, fontsize=30)
+plt.yticks(fontsize=18)
+plt.xticks(fontsize=0, rotation=45, ha='right')
+plt.show()
+```
+
+
+![png](/images/mercari/top_half_brands.png)
+
+
+An exponential growth curve that explodes at the end. I just like making huge charts like this.
+
+
+```python
+df.columns
+```
+
+
+
+
+    Index(['train_id', 'name', 'item_condition_id', 'category_name', 'brand_name',
+           'price', 'shipping', 'item_description'],
+          dtype='object')
+
+
+
+# Preprocessing
+
+## Natural Language Processing
+
+
+```python
+import nltk
+nltk.data.path.append(r'D:\Python\Data Sets\nltk_data')
+from nltk.corpus import stopwords
+import string
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import CountVectorizer
+from scipy import sparse
+```
+
+### Category Name
+
+This is pretty straightforward. Make dummy categories for each categorical value, with uncommon values just zero. But since this dataset is big and there's a large number of categories, the best way to use this is to use CountVectorizer() because it returns a sparse matrix instead of a dense one.
+
+
+```python
+cat_vec = CountVectorizer(stop_words=[stopwords, string.punctuation], max_features=int(len(cat_counts)*0.75))
+cat_matrix = cat_vec.fit_transform(df.category_name)
+cat_matrix_sub = cat_vec.transform(df_sub.category_name)
+```
+
+
+```python
+# For exploring the tokens. The array is an array inside of an array of one, ravel pulls it out.
+cat_tokens = list(zip(cat_vec.get_feature_names(), np.array(cat_matrix.sum(axis=0)).ravel()))
+```
+
+### Brand Name
+
+
+```python
+brand_vec = CountVectorizer(stop_words=[stopwords, string.punctuation], max_features=int(len(brand_counts)*0.75))
+brand_matrix = brand_vec.fit_transform(df.brand_name)
+brand_matrix_sub = brand_vec.transform(df_sub.brand_name)
+```
+
+
+```python
+brand_tokens = list(zip(brand_vec.get_feature_names(), np.array(brand_matrix.sum(axis=0)).ravel()))
+```
+
+### Item Name
+
+Item name and description are more complicated. As they are phrases and sentences, the number of words is going to be exponentially larger and the words themselves don't hold equal weight. I'm going to use a statistical method called Term Frequency - Inverse Document Frequency (TF-IDF) that combines the bag of words approach with a weight adjustment based on the overall frequency of each term in the dataset.
+
+
+```python
+name_vec = TfidfVectorizer(min_df=15, stop_words=[stopwords, string.punctuation])
+name_matrix = name_vec.fit_transform(df.name)
+name_matrix_sub = name_vec.transform(df_sub.name)
+```
+
+
+```python
+print('Kept %d words.' % len(name_vec.get_feature_names()))
+```
+
+    Kept 14407 words.
+
+
+### Description
+
+
+```python
+desc_vec = TfidfVectorizer(max_features=100000,
+                           stop_words=[stopwords, string.punctuation])
+desc_matrix = desc_vec.fit_transform(df.item_description)
+desc_matrix_sub= desc_vec.transform(df_sub.item_description)
+```
+
+### Condition and Shipping
+
+
+```python
+cond_matrix = sparse.csr_matrix(pd.get_dummies(df.item_condition_id, sparse=True, drop_first=True))
+cond_matrix_sub = sparse.csr_matrix(pd.get_dummies(df_sub.item_condition_id, sparse=True, drop_first=True))
+```
+
+
+```python
+ship_matrix = sparse.csr_matrix(df.shipping).transpose()
+ship_matrix_sub = sparse.csr_matrix(df_sub.shipping).transpose()
+```
+
+### Combine Sparse Matrices
+
+
+```python
+sparse_matrix = sparse.csr_matrix(sparse.hstack([cat_matrix, brand_matrix, name_matrix, desc_matrix,
+                               cond_matrix, ship_matrix]))
+sparse_matrix_sub = sparse.csr_matrix(sparse.hstack([cat_matrix_sub, brand_matrix_sub, name_matrix_sub,
+                                   desc_matrix_sub, cond_matrix_sub, ship_matrix_sub]))
+```
+
+
+```python
+if sparse_matrix.shape[1] == sparse_matrix_sub.shape[1]:
+    print('Features check out.')
+else:
+    print("The number of features in training and test set don't match.")
+```
+
+    Features check out.
+
+
+### Garbage Collection
+
+
+```python
+import gc
+del(cat_matrix, brand_matrix, name_matrix, desc_matrix, cond_matrix, ship_matrix)
+del(cat_matrix_sub, brand_matrix_sub, name_matrix_sub, desc_matrix_sub, cond_matrix_sub, ship_matrix_sub)
+del(df, df_sub)
+gc.collect()
+```
+
+
+
+
+    169
+
+
+
+
+```python
+print_time(start)
+```
+
+    Elapsed time was 2:01.
+
+
+# Training
+
+
+```python
+def rmsle(true, pred):
+    assert len(pred) == len(true)
+    return np.sqrt(np.mean(np.power(np.log1p(pred)-np.log1p(true), 2)))
+```
+
+Take the log of the target data to boost training accuracy.
+
+
+```python
+y_target = np.log10(np.array(y_target) + 1)
+```
+
+Split training and test set
+
+
+```python
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(sparse_matrix, y_target, test_size = 0.1)
+```
+
+### Ridge Regression
+
+
+```python
+start = time.time()
+from sklearn.linear_model import Ridge
+reg_ridge = Ridge(solver='sag', alpha=5)
+reg_ridge.fit(X_train, y_train)
+y_pred = reg_ridge.predict(X_test)
+print(rmsle(10 ** y_test - 1, 10 ** y_pred - 1))
+print_time(start)
+```
+
+    0.476321830094
+    Elapsed time was 0:38.
+
+
+### Lasso
+
+
+```python
+'''
+start = time.time()
+from sklearn.linear_model import Lasso
+reg_lasso = Lasso(alpha=1.0)
+reg_lasso.fit(X_train, y_train)
+y_pred = reg_lasso.predict(X_test)
+print(rmsle(10 ** y_test - 1, 10 ** y_pred - 1))
+print_time(start)
+'''
+```
+
+
+
+
+    '\nstart = time.time()\nfrom sklearn.linear_model import Lasso\nreg_lasso = Lasso(alpha=1.0)\nreg_lasso.fit(X_train, y_train)\ny_pred = reg_lasso.predict(X_test)\nprint(rmsle(10 ** y_test - 1, 10 ** y_pred - 1))\nprint_time(start)\n'
+
+
+
+### Random Forest
+
+
+```python
+'''start = time.time()
+from sklearn.ensemble import RandomForestRegressor
+reg_rf = RandomForestRegressor(n_estimators=800, max_depth=10)
+reg_rf.fit(X_train, y_train)
+y_pred = reg_rf.predict(X_test)
+print(rmsle(10 ** y_test - 1, 10 ** y_pred - 1))
+print_time(start)
+'''
+```
+
+
+
+
+    'start = time.time()\nfrom sklearn.ensemble import RandomForestRegressor\nreg_rf = RandomForestRegressor(n_estimators=800, max_depth=10)\nreg_rf.fit(X_train, y_train)\ny_pred = reg_rf.predict(X_test)\nprint(rmsle(10 ** y_test - 1, 10 ** y_pred - 1))\nprint_time(start)\n'
+
+
+
+### LightGBM
+
+
+```python
+import lightgbm as lgb
+lgb_train = lgb.Dataset(X_train, y_train)
+lgb_eval = lgb.Dataset(X_test, y_test, reference=lgb_train)
+```
+
+
+```python
+def rmsle_lgb(y_true, y_pred):
+    assert len(y_true) == len(y_pred)
+    return np.sqrt(np.mean(np.power(np.log1p(y_true + 1) - np.log1p(y_pred + 1), 2)))
+```
+
+
+```python
+start = time.time()
+params = {
+    'boosting_type': 'gbdt',
+    'objective': 'regression',
+    'metric': 'rmse',
+    'verbose': 0,
+    'num_leaves': 31,
+    'n_estimators': 1000,
+    'learning_rate': 0.5,
+    'max_depth': 10,
+}
+
+reg_lgbm = lgb.LGBMRegressor(**params)
+reg_lgbm.fit(X_train, y_train)
+y_pred = reg_lgbm.predict(X_test)
+
+print(rmsle(10 ** y_test - 1, 10 ** y_pred - 1))
+print_time(start)
+```
+
+    0.45267428996
+    Elapsed time was 10:19.
+
+
+### Stacking
+
+http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html
+
+Stacking Function. This function returns dataframes of predictions from each input model that can be merged into the train, test, and submission datasets. I used scikit-learn's 'clone' method, so all the weights will be stripped from the input models. This lets you input either fresh models or previously used models without worrying about it. A cloned model is generated for each training fold. I learned how to do this here, and it's an article worth reading:
+http://blog.kaggle.com/2016/12/27/a-kagglers-guide-to-model-stacking-in-practice/
+
+In my experiments, I've gotten 2-3% better performance from stacking a few models together than the best model does on it's own. Interestingly, even adding a crap model (like the Lasso regression with a score of 0.75) increases the overall performance. The stacked models seem to work better with tree based models than regression models.
+
+
+```python
+print('hi')
+```
+
+    hi
+
+
+
+```python
+from sklearn.model_selection import KFold
+from sklearn.base import clone
+def stack_predictions(X_train, y_train, X_test, submit, K, *models):
+    train_preds = pd.DataFrame(index=np.array(range(X_train.shape[0])))
+    test_preds = pd.DataFrame(index=np.array(range(X_test.shape[0])))
+    submit_preds = pd.DataFrame(index=np.array(range(submit.shape[0])))
+    folds = KFold(n_splits=K, shuffle=True)
+
+    fold_n = 0
+    train_folds = np.zeros(len(train_preds))
+    for train_index, test_index in folds.split(X_train):
+        train_folds[test_index] = fold_n
+        fold_n += 1
+
+    fold_n = 0
+    test_folds = np.zeros(len(test_preds))
+    for train_index, test_index in folds.split(X_test):
+        test_folds[test_index] = fold_n
+        fold_n += 1
+
+    fold_n = 0
+    submit_folds = np.zeros(len(submit_preds))
+    for train_index, test_index in folds.split(submit):
+        submit_folds[test_index] = fold_n
+        fold_n += 1
+
+    for m, model in enumerate(models):
+        print('Selecting model %d.' % (m+1))
+        col = 'pred_col_' + str(m)
+        train_preds[col] = np.nan
+        test_preds[col] = np.nan
+        submit_preds[col] = np.nan
+
+        for fold in range(K):
+            print('Processing a fold...')
+            current_model = clone(model)
+            current_model.fit(X_train[np.where(train_folds!=fold)], y_train[np.where(train_folds!=fold)])
+
+            train_preds[col].iloc[np.where(train_folds==fold)] = current_model.predict(
+                X_train[np.where(train_folds==fold)])
+
+            test_preds[col].iloc[np.where(test_folds==fold)] = current_model.predict(
+                X_test[np.where(test_folds==fold)])
+
+            submit_preds[col].iloc[np.where(submit_folds==fold)] = current_model.predict(
+                submit[np.where(submit_folds==fold)])  
+
+    return train_preds, test_preds, submit_preds
+```
+
+
+```python
+from sklearn.model_selection import KFold
+from sklearn.base import clone
+
+def stack_predictions(X_train, y_train, X_test, submit, K, *models):
+    train_preds = pd.DataFrame(index=np.array(range(X_train.shape[0])))
+    test_preds = pd.DataFrame(index=np.array(range(X_test.shape[0])))
+    submit_preds = pd.DataFrame(index=np.array(range(submit.shape[0])))
+    folds = KFold(n_splits=K, shuffle=True)
+
+    fold_n = 0
+    train_folds = np.zeros(len(train_preds))
+    for train_index, test_index in folds.split(X_train):
+        train_folds[test_index] = fold_n
+        fold_n += 1
+
+    fold_n = 0
+    test_folds = np.zeros(len(test_preds))
+    for train_index, test_index in folds.split(X_test):
+        test_folds[test_index] = fold_n
+        fold_n += 1
+
+    fold_n = 0
+    submit_folds = np.zeros(len(submit_preds))
+    for train_index, test_index in folds.split(submit):
+        submit_folds[test_index] = fold_n
+        fold_n += 1
+
+    for m, model in enumerate(models):
+        print('Selecting model %d.' % (m+1))
+        col = 'pred_col_' + str(m)
+        train_preds[col] = np.nan
+        test_preds[col] = np.nan
+        submit_preds[col] = np.nan
+
+        for fold in range(K):
+            print('Processing a fold...')
+            current_model = clone(model)
+            current_model.fit(X_train[np.where(train_folds!=fold)], y_train[np.where(train_folds!=fold)])
+
+            train_preds[col].iloc[np.where(train_folds==fold)] = current_model.predict(
+                X_train[np.where(train_folds==fold)])
+
+            test_preds[col].iloc[np.where(test_folds==fold)] = current_model.predict(
+                X_test[np.where(test_folds==fold)])
+
+            submit_preds[col].iloc[np.where(submit_folds==fold)] = current_model.predict(
+                submit[np.where(submit_folds==fold)])  
+
+    return train_preds, test_preds, submit_preds
+```
+
+Create models
+
+
+```python
+reg_ridge = Ridge(solver='sag', alpha=5)
+params = {
+    'boosting_type': 'gbdt',
+    'objective': 'regression',
+    'metric': 'rmse',
+    'verbose': 0,
+    'num_leaves': 31
+}
+
+reg_lgbm = lgb.LGBMRegressor(**params)
+```
+
+
+```python
+start = time.time()
+train_preds, test_preds, sub_preds = stack_predictions(X_train, y_train, X_test,
+                                                       sparse_matrix_sub, 10,
+                                                       reg_ridge, reg_lgbm)
+print_time(start)
+```
+
+
+    Elapsed time was 9:26.
+
+
+
+```python
+X_train_stacked = sparse.csr_matrix(sparse.hstack([X_train, sparse.csr_matrix(train_preds)]))
+X_test_stacked = sparse.csr_matrix(sparse.hstack([X_test, sparse.csr_matrix(test_preds)]))
+sub_stacked = sparse.csr_matrix(sparse.hstack([sparse_matrix_sub, sparse.csr_matrix(sub_preds)]))
+```
+
+
+```python
+start = time.time()
+from sklearn.linear_model import Ridge
+reg_ridge = Ridge(solver='sag', alpha=5)
+reg_ridge.fit(X_train_stacked, y_train)
+y_pred = reg_ridge.predict(X_test_stacked)
+print(rmsle(10 ** y_test - 1, 10 ** y_pred - 1))
+print_time(start)
+```
+
+    0.473045784616
+    Elapsed time was 0:51.
+
+
+
+```python
+start = time.time()
+params = {
+    'boosting_type': 'gbdt',
+    'objective': 'regression',
+    'metric': 'rmse',
+    'verbose': 0,
+    'num_leaves': 31,
+    'n_estimators': 1000,
+    'learning_rate': 0.5,
+    'max_depth': 10,
+    'random_seed'
+}
+
+reg_lgbm = lgb.LGBMRegressor(**params)
+reg_lgbm.fit(X_train_stacked, y_train)
+r_pred = reg_lgbm.predict(X_test_stacked)
+
+print(rmsle(10 ** y_test - 1,10 ** r_pred - 1))
+print_time(start)
+```
+
+    0.442803533309
+    Elapsed time was 9:12.
+
+
+Another LGBM model trained with the additional features from the input Ridge and LGBM models. I think it can evaluate how accurate the LGBM and Ridge predictions are along with the context of all the previous features, and make a more informed prediction.
+
+
+
+```python
+pred_sub = reg_lgbm.predict(sub_stacked)
+lightgbm_submission = submission.copy()
+lightgbm_submission['price'] = pd.DataFrame(10 ** pred_sub - 1)
+
+lightgbm_submission.to_csv('lightgbm_test_2.csv', index=False)
+```
+
+My final leaderboard score was 0.44072, which placed me at 420 out of 2,382. I was pretty happy with this because I don't really do Kaggle challenges to win, but rather to experiment with fun strategies.
