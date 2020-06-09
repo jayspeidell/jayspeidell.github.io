@@ -92,6 +92,14 @@ I led the front end development, built a REST API, implemented continuous deploy
 * Placed in the top 18%.
 * [View my project notebook on kaggle.com](https://www.kaggle.com/jayspeidell/predictions-as-features){:target="_blank"}
 
+### CPU Temperature Approximation
+* Developed a data analysis application to approximate time-series data in Python.
+* Implemented a matrix solver module from scratch.
+* Implemented Cubic Spline, Linear Least Squares, and Linear Piecewise interpolation.
+* Implemented full unit test coverage.
+* [View my project at github.com](https://github.com/jayspeidell/cpu-temp-approximation){:target="_blank"}
+
+{::comment}
 ### Bike Sharing Demand on Kaggle
 * Performed a visual statistical analysis of Washington DC's bike share ridership data.
 * Built a machine learning model to predict future ridership.
@@ -100,6 +108,7 @@ I led the front end development, built a REST API, implemented continuous deploy
 ### Super Moon Attack
 * Developed a game in Python where you can fly a space ship over the surface of the moon and shoot aliens.
 * [View the project repository on GitHub](https://github.com/jayspeidell/super-moon-attack){:target="_blank"}
+{:/comment}
 
 
 <hr>
