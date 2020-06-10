@@ -7,11 +7,11 @@ collection: portfolio
 
 <img src="/images/galaxy-zoo/header.png" style="width:100%" />
 
-This is an image classification project that I completed for my independent study at Old Dominion University. I'm interested in astronomy and chose to do Kaggle's [Galaxy Zoo Challenge](https://www.kaggle.com/c/galaxy-zoo-the-galaxy-challenge).
+This is an image classification project that I completed for my independent study at Old Dominion University. I'm interested in astronomy and chose to do Kaggle's [Galaxy Zoo Challenge](https://www.kaggle.com/c/galaxy-zoo-the-galaxy-challenge){:target="_blank"}.
 
 I'm going to walk you through my workflow for this project, including exploratory data analysis, image processing, and finally building a convolutional neural network (CNN) with PyTorch.
 
-[View the source Jupyter Notebook (HTML)](/images/galaxy-zoo/CS497_proj_1_JUN_7.html), which contains the full source code as well as my learning notes. Please excuse the spelling, as Jupyter does not have spellcheck!
+[View the source Jupyter Notebook (HTML)](/images/galaxy-zoo/CS497_proj_1_JUN_7.html){:target="_blank"}, which contains the full source code as well as my learning notes. Please excuse the spelling, as Jupyter does not have spellcheck!
 
 ### Index
 1. [Tools Used](#tools-used)
@@ -35,7 +35,7 @@ I'm going to walk you through my workflow for this project, including explorator
 
 ## Project Background
 
-This project is based on the [Galaxy Zoo Challenge](https://www.kaggle.com/c/galaxy-zoo-the-galaxy-challenge) on Kaggle. Galaxy Zoo is a project to describe galaxies in the night sky using an innovative [crowdsourcing tool](https://www.zooniverse.org/projects/zookeeper/galaxy-zoo), where users answer a series of questions about the images they are looking at. The dataset consists of 61,578 images with corresponding labels.
+This project is based on the [Galaxy Zoo Challenge](https://www.kaggle.com/c/galaxy-zoo-the-galaxy-challenge){:target="_blank"} on Kaggle. Galaxy Zoo is a project to describe galaxies in the night sky using an innovative [crowdsourcing tool](https://www.zooniverse.org/projects/zookeeper/galaxy-zoo){:target="_blank"}, where users answer a series of questions about the images they are looking at. The dataset consists of 61,578 images with corresponding labels.
 
 The labels represent 37 classes of the format "ClassA.B", where A represents the questions being as (from 1 to 11) and B represents the choices at the given level. This is different than a typical classification problem because each class represents an attribute, and most images will contain multiple attributes. The values represent the confidence of the crowd that a given answer is correct, from zero to one. The decision tree does not show every question to the user, but rather the questions shown are based on the previous answers.
 
@@ -475,4 +475,4 @@ I had fun working on this project. The bulk of the work was done within a week, 
 
 Given more time I would experiment more with both the preprocessing, particularly with more variance with the central pixel and maybe having the region of interest partially obscured around the edge to make the model more robust, as well as with the architecture of the neural network. I may revisit the project later on.
 
-All in all, a great way to kick of my final semester’s independent study! 
+All in all, a great way to kick of my final semester’s independent study!
