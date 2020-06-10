@@ -1,5 +1,5 @@
 ---
-title: "PySwarms Open Source Contribution"
+title: "PySwarms - Open Source Software Contribution"
 excerpt: "To learn more about collaborative development with version control systems as well as contributing to open source projects on GitHub, I made two contributions to the PySwarms project. PySwarms is a Python module for particle swarm optimization research.<br/><img src='/images/pyswarms/eggholder.jpg'>"
 collection: portfolio
 ---

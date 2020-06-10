@@ -96,7 +96,7 @@ redirect_from:
 ### CPU Temperature Approximation
 * Developed a data analysis application to approximate time-series data in Python.
 * Implemented a matrix solver module from scratch.
-* Implemented Cubic Spline, Linear Least Squares, and Linear Piecewise interpolation.
+* Implemented Cubic Spline, Linear Least Squares, and Linear Piecewise Interpolation.
 * Implemented full unit test coverage.
 * [View my project at github.com](https://github.com/jayspeidell/cpu-temp-approximation){:target="_blank"}
 

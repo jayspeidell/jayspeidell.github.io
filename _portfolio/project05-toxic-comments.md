@@ -1,5 +1,5 @@
 ---
-title: "Toxic Comment Classification"
+title: "Toxic Comment Classification - Natural Language Processing"
 excerpt: "I performed a detailed analysis of Wikipedia comments and built a model that classifies them as toxic or nontoxic. The data was obtained from Kaggle. <br/><img src='/images/toxic/wordcloud.png'>"
 collection: portfolio
 ---
