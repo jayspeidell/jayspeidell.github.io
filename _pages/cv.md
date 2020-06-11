@@ -24,15 +24,12 @@ redirect_from:
 
 # Education
 
-* ![-ico](\images\ico\odu.svg) B.S. in Computer Science, Old Dominion University, 2020
-  * 3.94 GPA
-  * Dean's List
-  * Scored 94th Percentile Nationally in MFT Computer Science Exit Exam
-
-![](/images/other/exit_exam.png){:style="width: 50%"}
+* ![-ico](\images\ico\odu.svg) B.S. in Computer Science, Old Dominion University, 2020 (3.94 GPA)
 *  ![-ico](\images\ico\Virginia_Tech_Hokies_logo.svg) B.A. in English, Virginia Tech, 2011
 
+I also scored in the top 94th percentile nationally in the MFT Computer Science exit exam.
 
+![](/images/other/exit_exam.png){:style="width: 50%"}
 <hr>
 
 # Projects
