@@ -16,16 +16,76 @@ redirect_from:
 <hr>
 
 * [Education](#education)<br />
-* [Skills](#skills)<br />
 * [Projects](#projects)<br />
+* [Skills](#skills)<br />
 * [Work Experience](#work-experience)<br />
 
 <hr>
 
 # Education
 
-* ![-ico](\images\ico\odu.svg) B.S. in Computer Science, Old Dominion University, 2020 (3.94 GPA)
+* ![-ico](\images\ico\odu.svg) B.S. in Computer Science, Old Dominion University, 2020
+  * 3.94 GPA
+  * Dean's List
+  * Scored 94th Percentile Nationally in MFT Computer Science Exit Exam
+
+![](/images/other/exit_exam.png){:style="width: 50%"}
 *  ![-ico](\images\ico\Virginia_Tech_Hokies_logo.svg) B.A. in English, Virginia Tech, 2011
+
+
+<hr>
+
+# Projects
+
+### Toxic Comment Classification
+* Built a Support Vector Machine model incorporating Naive Bayes feature weights that predicts whether Wikipedia comments are toxic.
+* Performed a visual analysis on a public database of Wikipedia comments.  
+* [Check it out on my projects page!](/portfolio/project05-toxic-comments/){:target="_blank"}
+
+### PySwarms Open Source Contribution
+* Significantly expanded the library of built-in objective functions.
+* Added the ability to use Pyplot color gradients, making it easier for researchers to visualize their objective functions.
+* Collaborated with other developers using GitHub for communication and version control.
+* Wrote unit tests to ensure contributions would be properly integrated into the project.
+* [Check it out on my projects page!](/portfolio/project00-pyswarms/){:target="_blank"}
+
+### Galaxy Zoo Challenge - Image Classification with PyTorch
+* Analyzed the distribution of class labels
+* Extracted the region of interest from each image using contours in OpenCV
+* Wrote a weighted MSE loss function to de-prioritize sparse classes
+* Build a convolutional neural network that predicts confidence level of crowdsources classifiers
+* [Check it out on my projects page!](../portfolio/project07-galazy-zoo/){:target="_blank"}
+
+### ODUConnect - Software Engineering Team Project
+* A group project to design and develop a ReactJS web app to connect industry professionals with mentoring opportunities at the university.
+* I led the front end development, built a REST API, implemented continuous deployments, among other responsibilities.
+* Used an MSSQL Database / Flask API / ReactJS front end stack.
+* [Check it out on my projects page!](../portfolio/project08-oduconnect)
+
+### CPU Temperature Approximation
+* Developed a data analysis application to approximate time-series data in Python.
+* Implemented a matrix solver module from scratch.
+* Implemented Cubic Spline, Linear Least Squares, and Linear Piecewise Interpolation.
+* Implemented full unit test coverage.
+* [View the project repository at github.com](https://github.com/jayspeidell/cpu-temp-approximation){:target="_blank"}
+
+### Mercari Price Suggestion Challenge on Kaggle
+* Performed exploratory data analysis on the Mercari item pricing data.
+* Built an ensembling algorithm that trains models in a sequence, using the output of multiple models as features in an ensemble model.
+* Placed in the top 18%.
+* [View my project notebook on kaggle.com](https://www.kaggle.com/jayspeidell/predictions-as-features){:target="_blank"}
+
+{::comment}
+### Bike Sharing Demand on Kaggle
+* Performed a visual statistical analysis of Washington DC's bike share ridership data.
+* Built a machine learning model to predict future ridership.
+* [View my project notebook on kaggle.com](https://www.kaggle.com/jayspeidell/visualizing-and-modeling-dc-bikeshare-ridership){:target="_blank"}
+
+### Super Moon Attack
+* Developed a game in Python where you can fly a space ship over the surface of the moon and shoot aliens.
+* [View the project repository on GitHub](https://github.com/jayspeidell/super-moon-attack){:target="_blank"}
+{:/comment}
+
 
 <hr>
 
@@ -64,52 +124,6 @@ redirect_from:
 * Photo Editing  <br /> ![-ico](\images\ico\icons8-adobe-photoshop.svg) (GIMP, PhotoShop)
 * Vector Graphics  <br /> ![-ico](\images\ico\icons8-adobe-illustrator.svg)![-ico](\images\ico\Inkscape-HIG-mental.svg) (Illustrator, Inkscape)
 *  Web Design <br /> ![-ico](\images\ico\html5.svg) ![-ico](\images\ico\CSS3_logo_and_wordmark.svg) ![-ico](\images\ico\react.svg)  (HTML, CSS, React)
-
-<hr>
-
-# Projects
-
-### Toxic Comment Classification
-* Built a Support Vector Machine model incorporating Naive Bayes feature weights that predicts whether Wikipedia comments are toxic.
-* Performed a visual analysis on a public database of Wikipedia comments.  
-* [Check it out on my projects page!](/portfolio/project1-toxic-comments/){:target="_blank"}
-
-### PySwarms Open Source Contribution (View On Projects Page)
-* Significantly expanded the library of built-in objective functions.
-* Added the ability to use Pyplot color gradient, making it easier for researchers to visualize their objective functions.
-* Collaborated with other developers using GitHub for communication and version control.
-* Wrote unit tests to ensure contributions would be properly integrated into the project.
-* [Check it out on my projects page!](/portfolio/project2-pyswarms/){:target="_blank"}
-
-### ODUConnect - Software Engineering Project
-* A group project to design and develop a ReactJS web app to connect industry professionals with mentoring opportunities at the university.
-* I led the front end development, built a REST API, implemented continuous deployments, among other responsibilities.
-* Used an MSSQL Database / Flask API / ReactJS front end stack.
-* [Check it out on my projects page!](../portfolio/project08-oduconnect)
-
-### Mercari Price Suggestion Challenge on Kaggle
-* Performed exploratory data analysis on the Mercari item pricing data.
-* Built an ensembling algorithm that trains models in a sequence, using the output of multiple models as features in an ensemble model.
-* Placed in the top 18%.
-* [View my project notebook on kaggle.com](https://www.kaggle.com/jayspeidell/predictions-as-features){:target="_blank"}
-
-### CPU Temperature Approximation
-* Developed a data analysis application to approximate time-series data in Python.
-* Implemented a matrix solver module from scratch.
-* Implemented Cubic Spline, Linear Least Squares, and Linear Piecewise Interpolation.
-* Implemented full unit test coverage.
-* [View my project at github.com](https://github.com/jayspeidell/cpu-temp-approximation){:target="_blank"}
-
-{::comment}
-### Bike Sharing Demand on Kaggle
-* Performed a visual statistical analysis of Washington DC's bike share ridership data.
-* Built a machine learning model to predict future ridership.
-* [View my project notebook on kaggle.com](https://www.kaggle.com/jayspeidell/visualizing-and-modeling-dc-bikeshare-ridership){:target="_blank"}
-
-### Super Moon Attack
-* Developed a game in Python where you can fly a space ship over the surface of the moon and shoot aliens.
-* [View the project repository on GitHub](https://github.com/jayspeidell/super-moon-attack){:target="_blank"}
-{:/comment}
 
 
 <hr>
