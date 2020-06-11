@@ -50,7 +50,7 @@ I also scored in the top 94th percentile nationally in the MFT Computer Science 
 * Analyzed the distribution of class labels
 * Extracted the region of interest from each image using contours in OpenCV
 * Wrote a weighted MSE loss function to de-prioritize sparse classes
-* Build a convolutional neural network that predicts confidence level of crowdsources classifiers
+* Built a convolutional neural network that predicts the confidence level of crowdsourced classification data 
 * [Check it out on my projects page!](../portfolio/project07-galazy-zoo/){:target="_blank"}
 
 ### ODUConnect - Software Engineering Team Project
