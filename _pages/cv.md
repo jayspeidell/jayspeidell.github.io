@@ -13,6 +13,8 @@ redirect_from:
 
 {:/comment}
 [Download My Resume (PDF)](/images/resume/Jay_Speidell.pdf){:target="_blank"}
+
+**Email:** <a href="mailto:jayspeidell@gmail.com">jayspeidell@gmail.com</a>
 <hr>
 
 * [Education](#education)<br />

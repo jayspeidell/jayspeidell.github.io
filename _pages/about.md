@@ -15,3 +15,5 @@ I built this website to to give you an idea of the skills I've developed, the te
 I'd also like to add some additional context that might not come across on paper. I come from a marketing background, and I'm continuing to work full time as a Marketing Manager as I pursue my education. I've also worked as a teacher for several years before that. This gives me a unique perspective and a powerful combination of technology and communication skills.
 
 And while you're here, check out my 3D printed trail maps!
+
+**Email:** <a href="mailto:jayspeidell@gmail.com">jayspeidell@gmail.com</a>
