@@ -25,7 +25,7 @@ redirect_from:
 # Education
 
 * ![-ico](\images\ico\odu.svg) B.S. in Computer Science, Old Dominion University, 2020 (3.94 GPA)
-*  ![-ico](\images\ico\Virginia_Tech_Hokies_logo.svg) B.A. in English, Virginia Tech, 2011
+*  ![-ico](\images\ico\Virginia_Tech_Hokies_logo.svg) B.A. in English - Professional Writing, Virginia Tech, 2011
 
 I also scored in the top 94th percentile nationally in the MFT Computer Science exit exam.
 
@@ -47,10 +47,10 @@ I also scored in the top 94th percentile nationally in the MFT Computer Science 
 * [Check it out on my projects page!](/portfolio/project00-pyswarms/){:target="_blank"}
 
 ### Galaxy Zoo Challenge - Image Classification with PyTorch
-* Analyzed the distribution of class labels
-* Extracted the region of interest from each image using contours in OpenCV
-* Wrote a weighted MSE loss function to de-prioritize sparse classes
-* Built a convolutional neural network that predicts the confidence level of crowdsourced classification data 
+* Analyzed the distribution of class labels.
+* Extracted the region of interest from each image using contours in OpenCV.
+* Wrote a weighted MSE loss function to de-prioritize sparse classes.
+* Built a convolutional neural network that predicts the confidence level of crowdsourced classification data.
 * [Check it out on my projects page!](../portfolio/project07-galazy-zoo/){:target="_blank"}
 
 ### ODUConnect - Software Engineering Team Project
