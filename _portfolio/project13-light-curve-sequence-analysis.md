@@ -266,7 +266,7 @@ _, X, y = process_data(df, df_meta, groupby_dic)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=RANDOM)
 ```
 
-Note: Pandas does have a built-in quantile function that would be more Pythonic, but it has a dramatical exponential time complexity versus my O(n log n) implementation. Total training time dropped from almost 20 minutes to 37 seconds when I changed from the Pandas implementation to the sorted list implementation above.
+Note: Pandas does have a built-in quantile function that would be more Pythonic, but it has exponential complexity versus my O(n log n) implementation. Total training time dropped from almost 20 minutes to 37 seconds when I changed from the Pandas implementation to the sorted list implementation above.
 
 <p align="center" style="font-size: 12px;">
    <img alt="img-name" src="/images/lsst/feature_importance_2.png" width="95%">
@@ -383,7 +383,7 @@ We can see a mix of performance across classes. Some perform very strong, while 
 
 In machine learning problems, not every class or cluster of data is guaranteed to be well suited for the same model. The solution to this is ensemble models, training multiple different types of models on either the full dataset or clusters of the data and having another model trained on the output. To see an example of ensembling and stacking, you can check out my entry in the [Mercari Price Prediction Challenge](https://www.kaggle.com/jayspeidell/predictions-as-features){:target="_blank"} where I used a boosted tree model on the output of another boosted tree and a linear regression model to get about 7% better performance than either model individually.
 
-There is a fundamental tradeoff in machine learning between the complexity of a model, in terms of not only Big 0 and computational overhead but also the engineer's time and expertise, and the performance of the model.
+There is a fundamental tradeoff in machine learning between the complexity of a model, in terms of not only Big O and computational overhead but also the engineer's time and expertise, and the performance of the model.
 
 For this project, I'm happy with this single model performance and it was a great exercise in feature engineering.
 
