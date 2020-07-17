@@ -266,7 +266,7 @@ _, X, y = process_data(df, df_meta, groupby_dic)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=RANDOM)
 ```
 
-Note: Pandas does have a built-in quartile function that would be more Pythonic, but it has a dramatical exponential time complexity versus my O(n log n) implementation. Total training time dropped from almost 20 minutes to 37 seconds when I changed from the Pandas implementation to the sorted list implementation above.
+Note: Pandas does have a built-in quantile function that would be more Pythonic, but it has a dramatical exponential time complexity versus my O(n log n) implementation. Total training time dropped from almost 20 minutes to 37 seconds when I changed from the Pandas implementation to the sorted list implementation above.
 
 <p align="center" style="font-size: 12px;">
    <img alt="img-name" src="/images/lsst/feature_importance_2.png" width="95%">
