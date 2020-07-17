@@ -2,6 +2,11 @@
    BASE ELEMENTS
    ========================================================================== */
 
+.table-wrapper {
+  overflow-x: scroll;
+}
+
+
 .flexible-container {
  position: relative;
  padding-bottom: 56.25%;

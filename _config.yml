@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Jay Speidell"
   avatar           : "profile.png"
-  bio              : "I'm a data science enthusiast and a graduating Computer Science major with a 3.94 GPA. Hire me!"
+  bio              : "I'm a software engineer with strong data science skills graduating with a Computer Science degree (3.94 GPA) in August 2020. Hire me!"
   location         : "Seattle, WA"
   employer         :
   pubmed           :
@@ -102,7 +102,7 @@ author:
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         : #"jayspeidell"
+  linkedin         : "jayspeidell"
   orcid            :
   pinterest        :
   soundcloud       :
