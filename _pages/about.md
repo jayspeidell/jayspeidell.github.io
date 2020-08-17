@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-Thanks for visiting my portfolio website! I'm a graduating Computer Science major ready to kick off my new career. I've spent the last four years independently studying math, stats, programming, and machine learning alongside pursuing my B.S. in Computer Science at Old Dominion University for the past two years.
+Thanks for visiting my portfolio website! I'm a recently graduated Computer Science major ready to kick off my new career. I've spent the last four years independently studying math, stats, programming, and machine learning alongside pursuing my B.S. in Computer Science at Old Dominion University for the past two years.
 
 I built this website to to give you an idea of the skills I've developed, the technologies and frameworks I've learned, and the projects I've completed. Check out the Projects and Resume tabs to learn more and see how I can add value to your data science team.
 
