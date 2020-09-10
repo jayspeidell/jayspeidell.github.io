@@ -15,8 +15,10 @@ redirect_from:
 [Download My Resume (PDF)](/images/resume/Jay_Speidell.pdf){:target="_blank"}
 
 **Email:** <a href="mailto:jayspeidell@gmail.com">jayspeidell@gmail.com</a>
-<hr>
+(Phone number on PDF resume.)
 
+<hr>
+## Index
 * [Education](#education)<br />
 * [Work Experience](#work-experience)<br />
 * [Projects](#projects)<br />
@@ -113,7 +115,7 @@ I built an ensembling algorithm that trains models in a sequence, using the outp
 # Skills
 ### Programming Languages
 * ![-ico](\images\ico\clang.svg) C (Intermediate)
-* ![-ico](\images\ico\icons8-c++.svg) C++ (High-Intermediate)
+* ![-ico](\images\ico\icons8-c++.svg) C++ (Intermediate, but my favorite)
 * ![-ico](\images\ico\icons8-java.svg) Java (Intermediate)
 * ![-ico](\images\ico\icons8-python.svg) Python (Advanced)
   * Incl. Flask, Keras, Numpy, Pandas, Pyplot, PyTorch, Scikit-Learn, Seaborn, Tensorflow
@@ -128,13 +130,15 @@ I built an ensembling algorithm that trains models in a sequence, using the outp
 * Statistics
 
 ### Computer Science
+* Automation (Scripting, Makefiles, anything else I can do to get out of clicking buttons more than once or opening an IDE.)
 * Cloud Computing Environments <br /> ![-ico](\images\ico\Amazon_Web_Services_Logo.svg) ![-ico](\images\ico\gce.svg)
 (AWS, Google Compute Engine)
 * Continuous Integration
 * Linux ![-ico](\images\ico\Tux.svg)
 * Rest APIs (Flask)
-* Software Engineering <br /> ![-ico](\images\ico\UML_logo.svg) (Unified Modeling Language)
+* Software Engineering <br />
   * Project Management
+  * Software Design ![-ico](\images\ico\UML_logo.svg) (Unified Modeling Language)
   * Unit Testing <br /> ![-ico](\images\ico\junit.png) ![-ico](\images\ico\pytest.webp)  (Junit, Pytest)
   * Version Control <br /> ![-ico](\images\ico\Git-logo.svg)  (Git, Github, Gitlab)
 * Virtual Environments <br /> ![-ico](\images\ico\conda.svg) ![-ico](\images\ico\jupyter.svg) (Conda, Jypyter)
