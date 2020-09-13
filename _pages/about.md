@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-**tl;dr** – I’m the unicorn software engineer you’re looking for! I earned a B.S. in Computer Science with a 3.94 GPA, I’ve led multiple software engineering projects to a successful delivery, I love the tech stuff from math and DSA to git and unit testing, and I have over a decade of experience in marketing, communication, and teaching. **I can solve problems, I can build things, and I can communicate effectively.**
+**tl;dr** – I’m the software engineer you’re looking for! I earned a B.S. in Computer Science with a 3.94 GPA, I’ve led multiple software engineering projects to a successful delivery, I love the tech stuff from math and DSA to git and unit testing, and I have over a decade of experience in marketing, communication, and teaching. **I can solve problems, I can build things, and I can communicate effectively.**
 
 A Long Introduction
 ===============
