@@ -48,10 +48,9 @@ I also scored in the top 94th percentile nationally in the MFT Computer Science 
 # Work experience
 ### Marketing Manager @ Momentum, Inc \| Nov '15 to Present
 Seattle, WA
-* Developed effective annual marketing strategies that delivered a consistently growing stream of inbound leads.
-* Migrated to HubSpot CRM and built policies and automated workflows integrating sales and marketing pipelines, resulting in better prospect tracking, more targeted sales outreach, and a dramatic increase in engaged leads for the sales team.
-* Drove increased website traffic and conversions through industry-leading content, including the [Momentum Insights](http://momentumbuilds.com/blog){:target="_blank"} blog and the data-driven whitepaper [A Study of Credit Union Workplaces and the Future of Work](https://cdn2.hubspot.net/hubfs/6312112/A%20Study%20of%20Credit%20Union%20Workplaces%20-%20Momentum.pdf){:target="_blank"}.
 
+* Created a marketing automation strategy with workflows that integrated sales and marketing efforts and increased team productivity.
+* Drove increased website traffic and conversions through industry-leading content marketing, including the [Momentum Insights](http://momentumbuilds.com/blog){:target="_blank"} blog and the data-driven whitepaper [A Study of Credit Union Workplaces and the Future of Work](https://cdn2.hubspot.net/hubfs/6312112/A%20Study%20of%20Credit%20Union%20Workplaces%20-%20Momentum.pdf){:target="_blank"}.
 
 ### Special Projects Manager @ The Speidell Group \| Mar '08 to Jul '11, Mar '14 to May '15
 Lynchburg, VA
