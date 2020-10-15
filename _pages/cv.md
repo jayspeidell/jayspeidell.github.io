@@ -35,9 +35,10 @@ redirect_from:
 
 I also scored in the top 94th percentile nationally in the MFT Computer Science exit exam.
 
+{::comment}
 ![](/images/other/exit_exam.png){:style="width: 50%"}
 
-{::comment}
+
 ![-ico](\images\ico\Virginia_Tech_Hokies_logo.svg)
 ![-ico](\images\ico\odu.svg)
 {:/comment}
@@ -68,30 +69,46 @@ Blacksburg, VA
 
 # Projects
 
-### Toxic Comment Classification
-I analyzed a public database of Wikipedia comments and used the insights I extracted to build a Support Vector Machine classifier model incorporating Naive Bayes feature weighting to effectively predict whether a given comment is toxic.
-
-[Check it out on my projects page!](/portfolio/project05-toxic-comments/){:target="_blank"}
-
-### PySwarms Open Source Contribution
-In response to a GitHub issue posted by the developers of PySwarms, a particle swarm optimization library, I implemented many new objective functions and updated a few existing ones, covering my contributions with new unit tests. I also improved the plotter module by adding support for Pyplot color gradients and fixed a performance issue, which I submitted as a separate pull request.
-
-[Check it out on my projects page!](/portfolio/project00-pyswarms/){:target="_blank"}
-
-### Galaxy Zoo Challenge - Image Classification with PyTorch
-I used insights that I gained from analyzing images in the Galaxy Zoo dataset to develop a weighted MSE loss function that prevents dramatic gradient updated from sparse classes and uses OpenCV to extract the region of interest from each image. I then built a convolutional neural network (CNN) with PyTorch and trained it on the processed data to predict the confidence level of crowdsourced human classifiers.
-
-[Check it out on my projects page!](../portfolio/project07-galazy-zoo/){:target="_blank"}
-
 ### ODUConnect - Software Engineering Team Project
-I led the front end development of a ReactJS web app to connect industry professionals with mentoring opportunities at ODU. I built the framework and continuous deployment pipeline and broke the work down into tasks which I assigned to team members, and I developed a REST API in Flask to connect the front end to an MSSQL database.
+An interactive web app to connect industry professionals with mentoring opportunities at ODU.
+* Built continuous deployment pipelines.
+* Led the front-end design, including process flows, UX, UI, and database requirements.
+* Developed and deployed a REST API in Flask.
+* Broke front end components into discrete tasks and assigned to team members with instructions and tutorials to implement in ReactJS.
+* Presented functional prototype to an industry review board
 
 [Check it out on my projects page!](../portfolio/project08-oduconnect)
 
+### PySwarms Open Source Contribution
+Open source contributions to a particle swarm optimization researchlibrary in Python.
+* Created new objective functions for benchmarking and improved existing ones, along with full unit test coverage.
+* Discovered opportunity to improve visualization with Pyplot gradients and submitted the feature as a separate pull request.
+* Delivered code conforming to contribution guidelines and project style
+
+[Check it out on my projects page!](/portfolio/project00-pyswarms/){:target="_blank"}
+
 ### CPU Temperature Approximation
-I built a matrix solver module from scratch and implemented cubic spline, linear least squares, and linear piecewise interpolation to approximate CPU temperature time series data using test driven development.
+An approximation and interpolation application with matrix solvermodule.
+* Developed algorithms for matrix solver and cubic spline, linear least squares, and piece-wise interpolation.
+* Created unit tests and documentation.
+* Wrote application in Python.
 
 [View the project repository at github.com](https://github.com/jayspeidell/cpu-temp-approximation){:target="_blank"}
+
+### Toxic Comment Classification
+Analysis and modeling of Wikipedia comments.
+* Performed a statistical analysis of comment data to inform data processing, feature engineering, and ML strategies.
+* Created and tested new features using benchmark models.
+* Developed a Support Vector Machine model incorporating a custom Naive Bayes weight feature transformer that effectively identified toxic comments.
+
+[Check it out on my projects page!](/portfolio/project05-toxic-comments/){:target="_blank"}
+
+### Galaxy Zoo Challenge - Image Classification with PyTorch
+Describe galaxies with space telescope data.
+* Created a data processing pipeline that extracts the region of interest from images and transforms data into Pytorch tensors.
+* Developed a convolutional neural network that accurately describes images and achieves goal root mean-square error.
+
+[Check it out on my projects page!](../portfolio/project07-galazy-zoo/){:target="_blank"}
 
 ### Mercari Price Suggestion Challenge on Kaggle
 I built an ensembling algorithm that trains models in a sequence, using the output of multiple models as features in an ensemble model that predicted the prices of items based on their prices and scored in the top 18% in the Kaggle challenge.
@@ -105,8 +122,8 @@ I built an ensembling algorithm that trains models in a sequence, using the outp
 * [View my project notebook on kaggle.com](https://www.kaggle.com/jayspeidell/visualizing-and-modeling-dc-bikeshare-ridership){:target="_blank"}
 
 ### Super Moon Attack
-* Developed a game in Python where you can fly a space ship over the surface of the moon and shoot aliens.
-* [View the project repository on GitHub](https://github.com/jayspeidell/super-moon-attack){:target="_blank"}
+Developed a game in Python where you can fly a space ship over the surface of the moon and shoot aliens.
+[View the project repository on GitHub](https://github.com/jayspeidell/super-moon-attack){:target="_blank"}
 {:/comment}
 
 
@@ -127,6 +144,21 @@ I built an ensembling algorithm that trains models in a sequence, using the outp
 * Relational Databases
   * Elasticsearch
   * SQL
+* Statistics
+
+* Data Exploration & Cleaning
+  * Pandas
+* Data Visualization
+  * Folium
+  * Pyplot
+  * Seaborn
+* Machine Learning
+  * Numpy
+  * Pytorch
+  * Scikit Learn 
+  * Scipy
+  * Tensorflow
+* SQL
 * Statistics
 
 ### Computer Science
