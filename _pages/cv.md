@@ -138,14 +138,6 @@ Developed a game in Python where you can fly a space ship over the surface of th
   * Incl. Flask, Keras, Numpy, Pandas, Pyplot, PyTorch, Scikit-Learn, Seaborn, Tensorflow
 
 ### Data Science
-* Data Visualization
-* Exploratory Data analysis
-* Machine Learning
-* Relational Databases
-  * Elasticsearch
-  * SQL
-* Statistics
-
 * Data Exploration & Cleaning
   * Pandas
 * Data Visualization
