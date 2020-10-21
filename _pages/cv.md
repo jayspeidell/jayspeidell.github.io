@@ -20,9 +20,10 @@ redirect_from:
 <hr>
 ## Index
 * [Education](#education)<br />
-* [Work Experience](#work-experience)<br />
-* [Projects](#projects)<br />
+* [Software Engineering Projects](#software-engineering-projects)<br />
+* [Data Science Projects](#data-science-projects)<br />
 * [Skills](#skills)<br />
+* [Work Experience](#work-experience)<br />
 
 
 <hr>
@@ -45,28 +46,9 @@ I also scored in the top 94th percentile nationally in the MFT Computer Science 
 
 <hr>
 
-# Work experience
-### Marketing Manager @ Momentum, Inc \| Nov '15 to Present
-Seattle, WA
 
-* Created a marketing automation strategy with workflows that integrated sales and marketing efforts and increased team productivity.
-* Drove increased website traffic and conversions through industry-leading content marketing, including the [Momentum Insights](http://momentumbuilds.com/blog){:target="_blank"} blog and the data-driven whitepaper [A Study of Credit Union Workplaces and the Future of Work](https://cdn2.hubspot.net/hubfs/6312112/A%20Study%20of%20Credit%20Union%20Workplaces%20-%20Momentum.pdf){:target="_blank"}.
 
-### Special Projects Manager @ The Speidell Group \| Mar '08 to Jul '11, Mar '14 to May '15
-Lynchburg, VA
-* Helped clients take their marketing to the next level with high quality photography, promotional videos, and other collateral.
-* Automated a client’s manual estimation and proposal drafting process with the development of an automated system.
-
-### Kindergarten Teacher @ Multiple Private Schools \| Jul '11 to Mar '14
-Seoul, South Korea
-* Helped children grow personally and academically by developing engaging lesson plans and making learning fun.
-
-### Reporter @ The Collegiate Times \| May'10 - Jun'11
-Blacksburg, VA
-
-<hr>
-
-# Projects
+# Software Engineering Projects
 
 ### ODUConnect - Software Engineering Team Project
 An interactive web app to connect industry professionals with mentoring opportunities at ODU.
@@ -93,6 +75,10 @@ An approximation and interpolation application with matrix solvermodule.
 * Wrote application in Python.
 
 [View the project repository at github.com](https://github.com/jayspeidell/cpu-temp-approximation){:target="_blank"}
+
+<hr>
+
+# Data Science Projects
 
 ### Toxic Comment Classification
 Analysis and modeling of Wikipedia comments.
@@ -136,39 +122,63 @@ Developed a game in Python where you can fly a space ship over the surface of th
 * ![-ico](\images\ico\icons8-python.svg) Python (Advanced)
   * Incl. Flask, Keras, Numpy, Pandas, Pyplot, PyTorch, Scikit-Learn, Seaborn, Tensorflow
 
+### Software Engineering
+* Automation (Scripting, Makefiles, anything else I can do to get out of clicking buttons more than once or opening an IDE.)
+* Cloud Computing Environments (AWS, Google Compute Engine)
+* Continuous Integration
+* Linux
+* Rest APIs (Flask)
+* Project Management
+* Software Design
+* Unit Testing (Junit, Pytest)
+* Version Control (Git, Github, Gitlab)
+* Virtual Environments (Conda, Jypyter)
+
 ### Data Science
 * Data Exploration & Cleaning
   * Pandas
 * Data Visualization
-  * Folium
-  * Pyplot
-  * Seaborn
+  * Folium, Pyplot, Seaborn
 * Machine Learning
-  * Numpy
-  * Pytorch
-  * Scikit Learn 
-  * Scipy
-  * Tensorflow
+  * Numpy, Pytorch, Scikit Learn, Scipy, Tensorflow
 * SQL
 * Statistics
 
-### Computer Science
-* Automation (Scripting, Makefiles, anything else I can do to get out of clicking buttons more than once or opening an IDE.)
-* Cloud Computing Environments <br /> ![-ico](\images\ico\Amazon_Web_Services_Logo.svg) ![-ico](\images\ico\gce.svg)
-(AWS, Google Compute Engine)
-* Continuous Integration
-* Linux ![-ico](\images\ico\Tux.svg)
-* Rest APIs (Flask)
-* Software Engineering <br />
-  * Project Management
-  * Software Design ![-ico](\images\ico\UML_logo.svg) (Unified Modeling Language)
-  * Unit Testing <br /> ![-ico](\images\ico\junit.png) ![-ico](\images\ico\pytest.webp)  (Junit, Pytest)
-  * Version Control <br /> ![-ico](\images\ico\Git-logo.svg)  (Git, Github, Gitlab)
-* Virtual Environments <br /> ![-ico](\images\ico\conda.svg) ![-ico](\images\ico\jupyter.svg) (Conda, Jypyter)
+### Communication
+*I have a unique combination of technical and communication skills. I'm able to communicate technical concepts to a broad audience, as well as bring project stakeholders together to reach a consensus, prioritize requirements, and break work down into tasks that actually get done. I understand what makes people tick and am able to help teams see the big picture and focus on what's important while ensuring that everyone is heard.*
+* Project Management
+  * Delivered a proposal automation platform to a client of The Speidell Group.
+  * Led a noteworthy software engineering capstone team project.
+  * Continually deliver collaborative marketing projects as a Marketing Manager.
+* Cross-Cultural Sensitivity
+* Writing (Technical and Non-Technical)
 
 ### Design
-* 3D Modeling  <br /> ![-ico](\images\ico\Openscad_SVG.svg) ![-ico](\images\ico\icons8-python.svg) (OpenSCAD, Python)
-* Document Design and Layout <br /> ![-ico](\images\ico\icons8-adobe-indesign.svg) ![-ico](\images\ico\LaTeX_logo.svg) (InDesign, LaTeX)
-* Photo Editing  <br /> ![-ico](\images\ico\icons8-adobe-photoshop.svg) (GIMP, PhotoShop)
-* Vector Graphics  <br /> ![-ico](\images\ico\icons8-adobe-illustrator.svg)![-ico](\images\ico\Inkscape-HIG-mental.svg) (Illustrator, Inkscape)
-*  Web Design <br /> ![-ico](\images\ico\html5.svg) ![-ico](\images\ico\CSS3_logo_and_wordmark.svg) ![-ico](\images\ico\react.svg)  (HTML, CSS, React)
+* 3D Modeling  (OpenSCAD, Python)
+* Document Design and Layout (InDesign, LaTeX)
+* Photo Editing (GIMP, PhotoShop)
+* Vector Graphics (Illustrator, Inkscape)
+*  Web Design (HTML, CSS, React)
+
+<hr>
+
+# Work experience
+### Marketing Manager @ Momentum, Inc \| Nov '15 to Present
+Seattle, WA
+
+* Created a marketing automation strategy with workflows that integrated sales and marketing efforts and increased team productivity.
+* Drove increased website traffic and conversions through industry-leading content marketing, including the [Momentum Insights](http://momentumbuilds.com/blog){:target="_blank"} blog and the data-driven whitepaper [A Study of Credit Union Workplaces and the Future of Work](https://cdn2.hubspot.net/hubfs/6312112/A%20Study%20of%20Credit%20Union%20Workplaces%20-%20Momentum.pdf){:target="_blank"}.
+
+### Special Projects Manager @ The Speidell Group \| Mar '08 to Jul '11, Mar '14 to May '15
+Lynchburg, VA
+* Helped clients take their marketing to the next level with high quality photography, promotional videos, and other collateral.
+* Automated a client’s manual estimation and proposal drafting process with the development of an automated system.
+
+### Kindergarten Teacher @ Multiple Private Schools \| Jul '11 to Mar '14
+Seoul, South Korea
+* Helped children grow personally and academically by developing engaging lesson plans and making learning fun.
+
+### Reporter @ The Collegiate Times \| May'10 - Jun'11
+Blacksburg, VA
+
+<hr>
