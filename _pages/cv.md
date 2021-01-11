@@ -56,7 +56,7 @@ An interactive web app to connect industry professionals with mentoring opportun
 * Led the front-end design, including process flows, UX, UI, and database requirements.
 * Developed and deployed a REST API in Flask.
 * Broke front end components into discrete tasks and assigned to team members with instructions and tutorials to implement in ReactJS.
-* Led my team to develop the most polished and functional prototype since course was created, setting a new standard for future cohorts. 
+* Led my team to develop the most polished and functional prototype since course was created, setting a new standard for future cohorts.
 
 [Check it out on my projects page!](../portfolio/project08-oduconnect)
 
@@ -143,21 +143,12 @@ Developed a game in Python where you can fly a space ship over the surface of th
 * SQL
 * Statistics
 
-### Communication
-*I have a unique combination of technical and communication skills. I'm able to communicate technical concepts to a broad audience, as well as bring project stakeholders together to reach a consensus, prioritize requirements, and break work down into tasks that actually get done. I understand what makes people tick and am able to help teams see the big picture and focus on what's important while ensuring that everyone is heard.*
-* Project Management
-  * Delivered a proposal automation platform to a client of The Speidell Group.
-  * Led a noteworthy software engineering capstone team project.
-  * Continually deliver collaborative marketing projects as a Marketing Manager.
-* Cross-Cultural Sensitivity
-* Writing (Technical and Non-Technical)
-
 ### Design
 * 3D Modeling  (OpenSCAD, Python)
 * Document Design and Layout (InDesign, LaTeX)
 * Photo Editing (GIMP, PhotoShop)
 * Vector Graphics (Illustrator, Inkscape)
-*  Web Design (HTML, CSS, React)
+* Web Design (HTML, CSS, React)
 
 <hr>
 
