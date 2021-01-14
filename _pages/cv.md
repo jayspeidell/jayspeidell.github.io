@@ -56,7 +56,6 @@ An interactive web app to connect industry professionals with mentoring opportun
 * Led the front-end design, including process flows, UX, UI, and database requirements.
 * Developed and deployed a REST API in Flask.
 * Broke front end components into discrete tasks and assigned to team members with instructions and tutorials to implement in ReactJS.
-* Led my team to develop the most polished and functional prototype since course was created, setting a new standard for future cohorts.
 
 [Check it out on my projects page!](../portfolio/project08-oduconnect)
 
