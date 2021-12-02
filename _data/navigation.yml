@@ -10,9 +10,6 @@ main:
   - title: "3D Trail Maps"
     url: /3dtrailmaps/
 
-  - title: "Resume"
-    url: /resume/
-
   - title: "Blog"
     url: /year-archive/
   #- title: "Publications"
