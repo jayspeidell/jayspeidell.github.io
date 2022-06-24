@@ -8,4 +8,4 @@ redirect_from:
   - /about.html
 ---
 
-Thanks for visiting, but I am no longer seeking software engineering or data analyst roles. 
+Thanks for visiting! I'm not on the market for a job right now so you won't find much here, but feel free to check out my 3D Printed Trail Maps or any other pages I currently have active. I'm planning to add more 3D printed content and D&D resources "soon." 
