@@ -5,13 +5,16 @@ main:
 
 
 
- # - title: "Projects"
- #   url: /projects/
+  - title: "Projects"
+    url: /projects/
   - title: "3D Trail Maps"
     url: /3dtrailmaps/
 
   - title: "Blog"
     url: /year-archive/
+    
+  - title: "Resume"
+    url: /resume/
   #- title: "Publications"
 #    url: /publications/
 
