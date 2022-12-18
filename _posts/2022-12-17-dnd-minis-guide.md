@@ -30,7 +30,7 @@ This is what the minis look like in PDF form.
 
 <img src="/images/minis/alan.png" style="width:100%" />
 
-I've published templates for Scribus and InDesign, [which you can download here](https://drive.google.com/drive/folders/1wLiS7TZpydAwycuHnFGZaKWt1daqGgSg?usp=share_link). I've also shared a spreadsheet with dimensions for recreating these templates in any design or photo editing software, [which you can download here](https://docs.google.com/spreadsheets/d/1lFickwdqXbclH-I8550c6iuZcArN_kFF/edit?usp=share_link&ouid=112011094715710279880&rtpof=true&sd=true).
+I've published templates for Scribus and InDesign, [which you can download here](https://drive.google.com/drive/folders/1wLiS7TZpydAwycuHnFGZaKWt1daqGgSg?usp=share_link). I've also shared a spreadsheet with dimensions for recreating these templates in any design or photo editing software, [which you can download here](https://docs.google.com/spreadsheets/d/1lFickwdqXbclH-I8550c6iuZcArN_kFF/edit?usp=share_link&ouid=112011094715710279880&rtpof=true&sd=true). (Dimensions are in millimeters.)
 
 Use the dimensions in the spreadsheet to create the document size and guide lines for any given mini size. Here is an example in Scribus, where the guides menu is opened from Page > manage Guides.
 
