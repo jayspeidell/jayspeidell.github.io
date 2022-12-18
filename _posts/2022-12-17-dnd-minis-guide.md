@@ -55,6 +55,6 @@ Cut them out, along with 1" (or an appropriate width for your mini size) strips 
 
 <img src="/images/minis/mini example.jpg" style="width:100%" />
 
-For larger minis, you may not want to use card stock. They seem to maintain their shape better when the corners are crimped, like below, and use extra glue inside the fold. I've printed up to 7" tall gargantuan minis like this.
+For larger minis, you may not want to use card stock in the middle but instead just the base. They seem to maintain their shape better when the corners are crimped, like below, and use extra glue inside the fold. I've printed up to 7" tall gargantuan minis like this.
 
 <img src="/images/minis/fold.jpg" style="width:100%" />
