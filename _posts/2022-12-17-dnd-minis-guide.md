@@ -1,5 +1,6 @@
 ---
 title: "Easy Papercraft Dungeons & Dragons Miniatures"
+excerpt: "Minis for TTRPGs are expensive, time consuming to make, or both. Here is a way to make them cheap and easy with paper.<br/><img src='/images/minis/assortment.jpg' style='width:30%' />"
 date: 2022-12-17
 permalink: /posts/2022/12/17/dnd-minis-guide/
 tags:
