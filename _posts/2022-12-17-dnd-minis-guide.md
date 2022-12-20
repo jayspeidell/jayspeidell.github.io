@@ -11,7 +11,7 @@ tags:
 - [Printing](#Printing)
 - [Finishing](#Finishing)
 
-[Google Drive link to templates, examples, and spreadsheet for document setup.](https://drive.google.com/drive/folders/1wLiS7TZpydAwycuHnFGZaKWt1daqGgSg?usp=share_link))
+[Google Drive link to templates, examples, and spreadsheet for document setup.](https://drive.google.com/drive/folders/1wLiS7TZpydAwycuHnFGZaKWt1daqGgSg?usp=share_link)
 (Examples shared use artwork from Rise of the Drow, published by AAW games. I have permission to share it, and would discourage sharing any minis you make without asking permission from the creators.)
 
 Minis can be a time consuming and expensive aspect of the D&D hobby. Even with a 3D printer, it still takes quite a bit of time and effort to get perfect prints at that scale and I really hate painting.
