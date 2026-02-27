@@ -1,7 +1,7 @@
 ---
 title: "A Newbie's Guide to Open Source Software Contributions"
 date: 2021-01-13
-permalink: /posts/2021/01/blog-post-2/
+permalink: /posts/open-source-guide
 tags:
   - software engineering
 ---

@@ -31,3 +31,15 @@ Many of the clients who enter the sales pipeline as only market study clients co
 You’re reading this because you’re evaluating me for a Marketing Manager or similar role, and what I’m hoping that you take away from this is an understanding of how I’m able to think outside of the box to drive business growth. Any marketing professional can handle the day-to-day of the role just fine. But I can elevate the role. I can see opportunities for growth hidden in the weeds. And even if at the surface it seem like a wasted effort at best or a recipe for loss, I might just be able to find a way to transform that into a branding advantage that grows your business exponentially. 
 
 Written without any use of AI.
+
+See the brochure below or [download here (PDF)](/images/marketing/Market_Intelligence_Brochure.pdf){:target="_blank"} 
+
+<object data="/images/marketing/Market_Intelligence_Brochure.pdf" type="application/pdf" width="100%" height="100%">
+    <p>It appears you don't have a PDF plugin for this browser.</p>
+</object>
+
+ 
+
+
+
+

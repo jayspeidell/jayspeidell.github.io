@@ -1,8 +1,12 @@
 ---
 title: "Galaxy Zoo Challenge - Image Classification with PyTorch"
-excerpt: "This is an image classification project that I completed for my independent study at Old Dominion University. The dataset was obtained from Kaggle's Galaxy Zoo Challenge. I chose astronomy datasets for my independent study because I enjoy learning about the topic and they presented an opportunity to sharpen my deep learning and PyTorch skills. "
-collection: portfolio
+excerpt: "This is an image classification project that I completed for my independent study at Old Dominion University. The dataset was obtained from Kaggle's Galaxy Zoo Challenge. I chose astronomy datasets for my independent study because I enjoy learning about the topic and they presented an opportunity to sharpen my deep learning and PyTorch skills. <img src='/images/galaxy-zoo/header.png'>"
+date: 2020-07-25
+permalink: /posts/galazy-zoo-challenge/
+tags:
+  - data science
 ---
+
 
 {% comment %} <img src='/images/galaxy-zoo/header.png'> {% endcomment %}
 

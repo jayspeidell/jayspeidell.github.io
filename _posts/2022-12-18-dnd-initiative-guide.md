@@ -2,7 +2,7 @@
 title: "DIY Initiative Tracker for Dungeons & Dragons"
 excerpt: "An easy to make initiative tracker for Dungeons & Dragons. Vertical, uses dry erase trackers, and packs up pretty small.<br/><img src='/images/minis/init-finished.jpg' style='width:30%' />"
 date: 2022-12-18
-permalink: /posts/2022/12/18/dnd-initiative-guide/
+permalink: /posts/dnd-initiative-guide/
 tags:
   - dungeons and dragons
 ---
