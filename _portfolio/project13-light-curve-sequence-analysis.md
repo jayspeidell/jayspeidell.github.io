@@ -1,13 +1,8 @@
 ---
 title: "PLAsTiCC Astronomical Classification - Light Curve Sequence Analysis"
 excerpt: "This is a sequence analysis project that I completed for my independent study at Old Dominion University. I used the open source dataset from Kaggle's PLAsTiCC Astronomical Classification Challenge. In the project I analyzed light curves, engineered over a hundred metadata features, and built a LightGBM model to predict the object classes. <br/><img src='/images/lsst/header.png'>"
-date: 2020-07-20
-permalink: /posts/plasticc/
-tags:
-  - data science
+collection: portfolio
 ---
-
-
 
 <img src="/images/lsst/header.png" style="width:100%" />
 

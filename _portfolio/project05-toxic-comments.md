@@ -1,18 +1,8 @@
 ---
 title: "Toxic Comment Classification - Natural Language Processing"
-excerpt: "I performed a detailed analysis of Wikipedia comments and built a model that classifies them as toxic or nontoxic. The final model is a support vector machine that uses a Naive Bayes feature weight transformer to improve performance. The data was obtained from Kaggle. "
-date: 2020-07-19
-permalink: /posts/toxic-comment-analysis/
-tags:
-  - data science
----
----
-title: "Toxic Comment Classification - Natural Language Processing"
-excerpt: "I performed a detailed analysis of Wikipedia comments and built a model that classifies them as toxic or nontoxic. The final model is a support vector machine that uses a Naive Bayes feature weight transformer to improve performance. The data was obtained from Kaggle. "
+excerpt: "I performed a detailed analysis of Wikipedia comments and built a model that classifies them as toxic or nontoxic. The final model is a support vector machine that uses a Naive Bayes feature weight transformer to improve performance. The data was obtained from Kaggle. <br/><img src='/images/toxic/wordcloud.png'>"
 collection: portfolio
 ---
-
-{% comment %} <img src='/images/toxic/wordcloud.png'> {% endcomment %}
 
 [The Jypyter notebooks and a report in PDF format can be found on my GitHub page here.](https://github.com/jayspeidell/ToxicCommentClassification-)
 
