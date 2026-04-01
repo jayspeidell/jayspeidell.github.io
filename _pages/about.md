@@ -8,4 +8,6 @@ redirect_from:
   - /about.html
 ---
 
-Thanks for visiting! I'm not on the market for a job right now so you won't find much here, but feel free to check out my 3D Printed Trail Maps or any other pages I currently have active. I'm planning to add more 3D printed content and D&D resources "soon." 
+Thanks for visiting! I use this website for several different purposes, check the nav bar up top for specific links. Projects goes into my technical expertise, Resume has my resume, Blog has some thoughts on hobby related stuff as well as a guide to getting into open source development. 
+
+I am in fact actively looking for marketing roles! 
